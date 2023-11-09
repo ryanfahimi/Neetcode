@@ -16,6 +16,7 @@ class containsDuplicate:
     def sorted(self, nums: List[int]) -> bool:
         nums.sort()
         for i in range(1, len(nums)):
+            # If the current number is the same as the previous number
             if nums[i] == nums[i - 1]:
                 return True
         return False

@@ -1,33 +1,38 @@
 import timeit
-from typing import List
+from collections import Counter
 
 
 class validAnagram:
+    # Time: O(nlogn)
+    def sorted(self, s: str, t: str) -> bool:
+        # sorted() returns a list
+        return sorted(s) == sorted(t)
+
     # Time: O(n)
     def hash_table(self, s: str, t: str) -> bool:
-        from collections import Counter
-
+        # Counter() returns a dictionary
         return Counter(s) == Counter(t)
 
     # Time: O(n)
     def array(self, s: str, t: str) -> bool:
-        counts = [0] * 26
+        if len(s) != len(t):
+            return False
+        counts = [0] * 26  # 26 letters in the alphabet
         for char in s:
+            # ord() returns the unicode code point of a character
             counts[ord(char) - ord("a")] += 1
         for char in t:
             counts[ord(char) - ord("a")] -= 1
+            # If the count is negative, then there are more of that character in t
             if counts[ord(char) - ord("a")] < 0:
                 return False
+        # If all counts are 0, then s and t are anagrams
         return all(count == 0 for count in counts)
-
-    # Time: O(nlogn)
-    def sorted_anagrams(self, s: str, t: str) -> bool:
-        return sorted(s) == sorted(t)
 
     def main(self):
         s = "anagram"
         t = "nagaram"
-        funcs = [self.hash_table, self.array, self.sorted_anagrams]
+        funcs = [self.sorted, self.hash_table, self.array]
         for func in funcs:
             start_time = timeit.default_timer()
             print(func(s, t))

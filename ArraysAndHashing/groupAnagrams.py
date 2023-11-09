@@ -7,7 +7,9 @@ class groupAnagrams:
     def sorted_hash_table(self, strs: List[str]) -> List[List[str]]:
         anagrams = {}
         for s in strs:
-            key = tuple(sorted(s))
+            # sorted() returns a list
+            key = tuple(sorted(s))  # Convert the list to a tuple
+            # If the key is not in the dictionary, then add it
             anagrams[key] = anagrams.get(key, []) + [s]
         return list(anagrams.values())
 
@@ -15,10 +17,13 @@ class groupAnagrams:
     def count_hash_table(self, strs: List[str]) -> List[List[str]]:
         anagrams = {}
         for s in strs:
-            count = [0] * 26
+            # Create a list of 26 zeros
+            count = [0] * 26  # 26 letters in the alphabet
             for char in s:
-                count[ord(char) - ord("a")] += 1
-            key = tuple(count)
+                # ord() returns the unicode code point of a character
+                count[ord(char) - ord("a")] += 1  # Increment the count of the character
+            key = tuple(count)  # Convert the list to a tuple
+            # If the key is not in the dictionary, then add it
             anagrams[key] = anagrams.get(key, []) + [s]
         return list(anagrams.values())
 

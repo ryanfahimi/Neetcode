@@ -16,24 +16,17 @@ class twoSum:
     def hash_table(self, nums: List[int], target: int) -> List[int]:
         sumMap = {}
         for i, n in enumerate(nums):
+            # If the complement is in the map, then we have found the pair
             complement = target - n
             if complement in sumMap:
                 return [sumMap[complement], i]
             sumMap[n] = i
         return []
 
-    # Time: O(n)
-    def array(self, nums: List[int], target: int) -> List[int]:
-        for i, n in enumerate(nums):
-            complement = target - n
-            if complement in nums and i != nums.index(complement):
-                return [i, nums.index(complement)]
-        return []
-
     def main(self):
         nums = [2, 7, 11, 15]
         target = 9
-        funcs = [self.brute_force, self.hash_table, self.array]
+        funcs = [self.brute_force, self.hash_table]
         for func in funcs:
             start_time = timeit.default_timer()
             print(func(nums, target))
