@@ -1,0 +1,36 @@
+import timeit
+from typing import List
+
+
+class groupAnagrams:
+    # Time: O(nklogk)
+    def sorted_hash_table(self, strs: List[str]) -> List[List[str]]:
+        anagrams = {}
+        for s in strs:
+            key = tuple(sorted(s))
+            anagrams[key] = anagrams.get(key, []) + [s]
+        return list(anagrams.values())
+
+    # Time: O(nk)
+    def count_hash_table(self, strs: List[str]) -> List[List[str]]:
+        anagrams = {}
+        for s in strs:
+            count = [0] * 26
+            for char in s:
+                count[ord(char) - ord("a")] += 1
+            key = tuple(count)
+            anagrams[key] = anagrams.get(key, []) + [s]
+        return list(anagrams.values())
+
+    def main(self):
+        strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
+        funcs = [self.sorted_hash_table, self.count_hash_table]
+        for func in funcs:
+            start_time = timeit.default_timer()
+            print(func(strs))
+            end_time = timeit.default_timer()
+            print(f"Function {func.__name__} took {end_time - start_time:.6f} seconds.")
+
+
+if __name__ == "__main__":
+    groupAnagrams().main()
