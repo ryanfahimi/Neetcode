@@ -4,6 +4,7 @@ import timeit
 
 class longestConsecutive:
     # Time: O(n)
+    # Space: O(n)
     def hash_set(self, nums: List[int]) -> int:
         # Create a set of the numbers
         num_set = set(nums)
@@ -22,6 +23,7 @@ class longestConsecutive:
         return longest_streak
 
     # Time: O(n)
+    # Space: O(n)
     def hash_table(self, nums: List[int]) -> int:
         num_dict = {}
         longest_streak = 0

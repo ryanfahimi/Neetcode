@@ -4,16 +4,19 @@ from collections import Counter
 
 class validAnagram:
     # Time: O(nlogn)
+    # Space: O(1)
     def sorted(self, s: str, t: str) -> bool:
         # sorted() returns a list
         return sorted(s) == sorted(t)
 
     # Time: O(n)
+    # Space: O(1)
     def hash_table(self, s: str, t: str) -> bool:
         # Counter() returns a dictionary
         return Counter(s) == Counter(t)
 
     # Time: O(n)
+    # Space: O(1)
     def array(self, s: str, t: str) -> bool:
         if len(s) != len(t):
             return False

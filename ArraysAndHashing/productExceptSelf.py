@@ -3,22 +3,6 @@ import timeit
 
 
 class productExceptSelf:
-    # Time: O(n^2)
-    # Space: O(1)
-    def brute_force(self, nums: List[int]) -> List[int]:
-        length = len(nums)
-        # Create a list of size n
-        output = [1] * length
-        # Iterate through the list
-        for i in range(length):
-            # Iterate through the list
-            for j in range(length):
-                # If the indices are not equal
-                if i != j:
-                    # Multiply the current element by the current element
-                    output[i] *= nums[j]
-        return output
-
     # Time: O(n)
     # Space: O(n)
     def arrays(self, nums: List[int]) -> List[int]:
@@ -63,7 +47,7 @@ class productExceptSelf:
 
     def main(self):
         nums = [1, 2, 3, 4]
-        funcs = [self.brute_force, self.arrays, self.array]
+        funcs = [self.arrays, self.array]
         for func in funcs:
             start_time = timeit.default_timer()
             print(func(nums))

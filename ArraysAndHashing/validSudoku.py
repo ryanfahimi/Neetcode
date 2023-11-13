@@ -5,25 +5,6 @@ import timeit
 class validSudoku:
     # Time: O(1)
     # Space: O(1)
-    def on_the_fly(self, board: List[List[str]]) -> bool:
-        for i, row in enumerate(board):
-            for j, cell in enumerate(row):
-                if cell != ".":
-                    for k in range(9):
-                        if k != i and cell == board[k][j]:
-                            return False
-                        if k != j and cell == board[i][k]:
-                            return False
-                        box_row = (i // 3) * 3 + k // 3
-                        box_col = (j // 3) * 3 + k % 3
-                        if (box_row != i or box_col != j) and cell == board[box_row][
-                            box_col
-                        ]:
-                            return False
-        return True
-
-    # Time: O(1)
-    # Space: O(1)
     def boolean_arrays(self, board: List[List[str]]) -> bool:
         # Create a list of 9 lists of 9 False values
         rows = [[False] * 9 for _ in range(9)]
@@ -77,7 +58,7 @@ class validSudoku:
             [".", ".", ".", "4", "1", "9", ".", ".", "5"],
             [".", ".", ".", ".", "8", ".", ".", "7", "9"],
         ]
-        funcs = [self.on_the_fly, self.boolean_arrays, self.hash_set]
+        funcs = [self.boolean_arrays, self.hash_set]
         for func in funcs:
             start_time = timeit.default_timer()
             print(func(board))

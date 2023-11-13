@@ -4,6 +4,7 @@ from typing import List
 
 class groupAnagrams:
     # Time: O(nklogk)
+    # Space: O(nk)
     def sorted_hash_table(self, strs: List[str]) -> List[List[str]]:
         anagrams = {}
         for s in strs:
@@ -14,6 +15,7 @@ class groupAnagrams:
         return list(anagrams.values())
 
     # Time: O(nk)
+    # Space: O(nk)
     def count_hash_table(self, strs: List[str]) -> List[List[str]]:
         anagrams = {}
         for s in strs:

@@ -6,6 +6,7 @@ import heapq
 
 class topKFrequent:
     # Time: O(nlogn)
+    # Space: O(n)
     def sorted_hash_table(self, nums: List[int], k: int) -> List[int]:
         # Counter() returns a dictionary
         count = Counter(nums)
@@ -18,6 +19,7 @@ class topKFrequent:
         return sorted(count.keys(), key=lambda x: count[x], reverse=True)[:k]
 
     # Time: O(nlogk)
+    # Space: O(n)
     def hash_table_and_heap(self, nums: List[int], k: int) -> List[int]:
         # Counter() returns a dictionary
         count = Counter(nums)
@@ -30,6 +32,7 @@ class topKFrequent:
         return heapq.nlargest(k, count.keys(), key=lambda x: count[x])
 
     # Time: O(n)
+    # Space: O(n)
     def bucket_sort(self, nums: List[int], k: int) -> List[int]:
         # Counter() returns a dictionary
         count = Counter(nums)
