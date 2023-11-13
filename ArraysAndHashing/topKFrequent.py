@@ -4,7 +4,7 @@ from collections import Counter
 import heapq
 
 
-class topKFrequentElements:
+class topKFrequent:
     # Time: O(nlogn)
     def sorted_hash_table(self, nums: List[int], k: int) -> List[int]:
         # Counter() returns a dictionary
@@ -55,4 +55,4 @@ class topKFrequentElements:
 
 
 if __name__ == "__main__":
-    topKFrequentElements().main()
+    topKFrequent().main()
