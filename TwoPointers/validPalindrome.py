@@ -4,20 +4,6 @@ import re
 
 class validPalindromes:
     # Time: O(n)
-    # Space: O(n)
-    def regex(self, s: str) -> bool:
-        s = re.sub("[^a-zA-Z0-9]", "", s).lower()
-        return s == s[::-1]
-
-    # Time: O(n)
-    # Space: O(n)
-    def filter_and_compare(self, s: str) -> bool:
-        # Filter out non-alphanumeric characters and convert to lowercase
-        s = "".join(char for char in s if char.isalnum()).lower()
-        # Compare s with its reverse
-        return s == s[::-1]
-
-    # Time: O(n)
     # Space: O(1)
     def two_pointers(self, s: str) -> bool:
         # Two pointers
@@ -37,7 +23,7 @@ class validPalindromes:
 
     def main(self):
         s = "A man, a plan, a canal: Panama"
-        funcs = [self.regex, self.filter_and_compare, self.two_pointers]
+        funcs = [self.two_pointers]
         for func in funcs:
             start_time = timeit.default_timer()
             print(func(s))
