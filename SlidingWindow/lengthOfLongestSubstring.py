@@ -8,16 +8,16 @@ class lengthOfLongestSubstring:
         # Create a dictionary to store the characters and their indices
         char_dict = {}
         # Initialize the start of the window and the maximum length
-        start, max_length = 0, 0
-        for end in range(len(s)):
+        left, max_length = 0, 0
+        for right in range(len(s)):
             # If the character is in the dictionary
-            if s[end] in char_dict:
+            if s[right] in char_dict:
                 # Update the start of the window
-                start = max(start, char_dict[s[end]] + 1)
+                left = max(left, char_dict[s[right]] + 1)
             # Add the character and its index to the dictionary
-            char_dict[s[end]] = end
+            char_dict[s[right]] = right
             # Update the maximum length
-            max_length = max(max_length, end - start + 1)
+            max_length = max(max_length, right - left + 1)
         return max_length
 
     # Time: O(n)
@@ -26,18 +26,18 @@ class lengthOfLongestSubstring:
         # Create a set to store the characters
         char_set = set()
         # Initialize the start of the window and the maximum length
-        start, max_length = 0, 0
-        for end in range(len(s)):
+        left, max_length = 0, 0
+        for right in range(len(s)):
             # If the character is in the set
-            while s[end] in char_set:
+            while s[right] in char_set:
                 # Remove the character at the start of the window
-                char_set.remove(s[start])
+                char_set.remove(s[left])
                 # Update the start of the window
-                start += 1
+                left += 1
             # Add the character to the set
-            char_set.add(s[end])
+            char_set.add(s[right])
             # Update the maximum length
-            max_length = max(max_length, end - start + 1)
+            max_length = max(max_length, right - left + 1)
         return max_length
 
     def main(self):
