@@ -23,6 +23,8 @@ class groupAnagrams:
             count = [0] * 26  # 26 letters in the alphabet
             for char in s:
                 # ord() returns the unicode code point of a character
+                # Subtracting the unicode code point of "a" from the unicode code point of the character
+                # gives us the index of the character in the list
                 count[ord(char) - ord("a")] += 1  # Increment the count of the character
             key = tuple(count)  # Convert the list to a tuple
             # If the key is not in the dictionary, then add it

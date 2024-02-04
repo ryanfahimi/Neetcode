@@ -6,6 +6,7 @@ class containsDuplicate:
     # Time: O(nlogn)
     # Space: O(1)
     def sorted(self, nums: List[int]) -> bool:
+        # Sort the numbers
         nums.sort()
         for i in range(1, len(nums)):
             # If the current number is the same as the previous number
@@ -16,11 +17,15 @@ class containsDuplicate:
     # Time: O(n)
     # Space: O(n)
     def hash_set(self, nums: List[int]) -> bool:
+        # Create a set to store the numbers seen so far
         seen = set()
         for num in nums:
+            # If the number is already in the set, return True
             if num in seen:
                 return True
+            # Otherwise, add the number to the set
             seen.add(num)
+        # If we have gone through all the numbers without finding a duplicate, return False
         return False
 
     def main(self):
