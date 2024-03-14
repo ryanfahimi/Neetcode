@@ -1,9 +1,35 @@
-import timeit
+# 424. Longest Repeating Character Replacement
+# Medium
+
+# You are given a string s and an integer k. You can choose any character of the string and change it to any other uppercase English character. You can perform this operation at most k times.
+
+# Return the length of the longest substring containing the same letter you can get after performing the above operations.
+
+
+# Example 1:
+
+# Input: s = "ABAB", k = 2
+# Output: 4
+# Explanation: Replace the two 'A's with two 'B's or vice versa.
+
+# Example 2:
+
+# Input: s = "AABABBA", k = 1
+# Output: 4
+# Explanation: Replace the one 'A' in the middle with 'B' and form "AABBBBA".
+# The substring "BBBB" has the longest repeating letters, which is 4.
+# There may exists other ways to achieve this answer too.
+
+
+# Constraints:
+
+# 1 <= s.length <= 10^5
+# s consists of only uppercase English letters.
+# 0 <= k <= s.length
 
 
 class characterReplacement:
     # Time: O(n)
-    # Space: O(1)
     def hash_table(self, s: str, k: int) -> int:
         # Create a dictionary to store the frequency of each character
         char_dict = {}
@@ -28,7 +54,6 @@ class characterReplacement:
         return max_length
 
     # Time: O(n)
-    # Space: O(1)
     def max_count(self, s: str, k: int) -> int:
         # Create a dictionary to store the frequency of each character
         char_dict = {}
@@ -57,12 +82,15 @@ class characterReplacement:
     def main(self):
         s = "ABAB"
         k = 2
-        funcs = [self.hash_table, self.max_count]
-        for func in funcs:
-            start_time = timeit.default_timer()
-            print(func(s, k))
-            end_time = timeit.default_timer()
-            print(f"Function {func.__name__} took {end_time - start_time:.6f} seconds.")
+        print(f"Input: s = {s}, k = {k}")
+        print(f"Hash Table Output: {self.hash_table(s, k)}")
+        print(f"Max Count Output: {self.max_count(s, k)}")
+
+        s = "AABABBA"
+        k = 1
+        print(f"Input: s = {s}, k = {k}")
+        print(f"Hash Table Output: {self.hash_table(s, k)}")
+        print(f"Max Count Output: {self.max_count(s, k)}")
 
 
 if __name__ == "__main__":

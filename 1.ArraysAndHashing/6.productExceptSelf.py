@@ -1,10 +1,38 @@
 from typing import List
-import timeit
+
+# 238. Product of Array Except Self
+# Medium
+
+# Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i].
+
+# The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
+
+# You must write an algorithm that runs in O(n) time and without using the division operation.
+
+
+# Example 1:
+
+# Input: nums = [1,2,3,4]
+# Output: [24,12,8,6]
+
+# Example 2:
+
+# Input: nums = [-1,1,0,-3,3]
+# Output: [0,0,9,0,0]
+
+
+# Constraints:
+
+# 2 <= nums.length <= 10^5
+# -30 <= nums[i] <= 30
+# The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
+
+
+# Follow up: Can you solve the problem in O(1) extra space complexity? (The output array does not count as extra space for space complexity analysis.)
 
 
 class productExceptSelf:
     # Time: O(n)
-    # Space: O(n)
     def arrays(self, nums: List[int]) -> List[int]:
         length = len(nums)
         # Create a three lists of size n
@@ -26,7 +54,6 @@ class productExceptSelf:
         return output
 
     # Time: O(n)
-    # Space: O(1)
     def array(self, nums: List[int]) -> List[int]:
         length = len(nums)
         # Create a list of size n
@@ -47,12 +74,14 @@ class productExceptSelf:
 
     def main(self):
         nums = [1, 2, 3, 4]
-        funcs = [self.arrays, self.array]
-        for func in funcs:
-            start_time = timeit.default_timer()
-            print(func(nums))
-            end_time = timeit.default_timer()
-            print(f"Function {func.__name__} took {end_time - start_time:.6f} seconds.")
+        print(f"Input: nums = {nums}")
+        print(f"Arrays Output: {self.arrays(nums)}")
+        print(f"Array Output: {self.array(nums)}")
+
+        nums = [-1, 1, 0, -3, 3]
+        print(f"Input: nums = {nums}")
+        print(f"Arrays Output: {self.arrays(nums)}")
+        print(f"Array Output: {self.array(nums)}")
 
 
 if __name__ == "__main__":

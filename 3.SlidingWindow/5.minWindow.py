@@ -1,7 +1,46 @@
-import timeit
+# 76. Minimum Window Substring
+# Hard
+
+# Given two strings s and t of lengths m and n respectively, return the minimum window
+# substring
+#  of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string "".
+
+# The testcases will be generated such that the answer is unique.
+
+
+# Example 1:
+
+# Input: s = "ADOBECODEBANC", t = "ABC"
+# Output: "BANC"
+# Explanation: The minimum window substring "BANC" includes 'A', 'B', and 'C' from string t.
+
+# Example 2:
+
+# Input: s = "a", t = "a"
+# Output: "a"
+# Explanation: The entire string s is the minimum window.
+
+# Example 3:
+
+# Input: s = "a", t = "aa"
+# Output: ""
+# Explanation: Both 'a's from t must be included in the window.
+# Since the largest window of s only has one 'a', return empty string.
+
+
+# Constraints:
+
+# m == s.length
+# n == t.length
+# 1 <= m, n <= 10^5
+# s and t consist of uppercase and lowercase English letters.
+
+
+# Follow up: Could you find an algorithm that runs in O(m + n) time?
 
 
 class minWindow:
+    # Time: O(n^2)
     def brute_force(self, s: str, t: str) -> str:
         # Create a dictionary to store the frequency of each character
         t_count, window_count = {}, {}
@@ -32,6 +71,7 @@ class minWindow:
 
         return result
 
+    # Time: O(n)
     def hash_table(self, s: str, t: str) -> str:
         # Create a dictionary to store the frequency of each character
         t_count, window_count = {}, {}
@@ -78,12 +118,21 @@ class minWindow:
     def main(self):
         s = "ADOBECODEBANC"
         t = "ABC"
-        funcs = [self.brute_force, self.hash_table]
-        for func in funcs:
-            start_time = timeit.default_timer()
-            print(func(s, t))
-            end_time = timeit.default_timer()
-            print(f"Function {func.__name__} took {end_time - start_time:.6f} seconds.")
+        print(f"Input: s = {s}, t = {t}")
+        print(f"Brute Force Output: {self.brute_force(s, t)}")
+        print(f"Hash Table Output: {self.hash_table(s, t)}")
+
+        s = "a"
+        t = "a"
+        print(f"Input: s = {s}, t = {t}")
+        print(f"Brute Force Output: {self.brute_force(s, t)}")
+        print(f"Hash Table Output: {self.hash_table(s, t)}")
+
+        s = "a"
+        t = "aa"
+        print(f"Input: s = {s}, t = {t}")
+        print(f"Brute Force Output: {self.brute_force(s, t)}")
+        print(f"Hash Table Output: {self.hash_table(s, t)}")
 
 
 if __name__ == "__main__":

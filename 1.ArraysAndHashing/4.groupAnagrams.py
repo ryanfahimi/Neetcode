@@ -1,10 +1,38 @@
-import timeit
 from typing import List
+
+# 49. Group Anagrams
+# Medium
+
+# Given an array of strings strs, group the anagrams together. You can return the answer in any order.
+
+# An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+
+
+# Example 1:
+
+# Input: strs = ["eat","tea","tan","ate","nat","bat"]
+# Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+
+# Example 2:
+
+# Input: strs = [""]
+# Output: [[""]]
+
+# Example 3:
+
+# Input: strs = ["a"]
+# Output: [["a"]]
+
+
+# Constraints:
+
+# 1 <= strs.length <= 10^4
+# 0 <= strs[i].length <= 100
+# strs[i] consists of lowercase English letters.
 
 
 class groupAnagrams:
     # Time: O(nklogk)
-    # Space: O(nk)
     def sorted_hash_table(self, strs: List[str]) -> List[List[str]]:
         anagrams = {}
         for s in strs:
@@ -15,7 +43,6 @@ class groupAnagrams:
         return list(anagrams.values())
 
     # Time: O(nk)
-    # Space: O(nk)
     def count_hash_table(self, strs: List[str]) -> List[List[str]]:
         anagrams = {}
         for s in strs:
@@ -33,12 +60,19 @@ class groupAnagrams:
 
     def main(self):
         strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
-        funcs = [self.sorted_hash_table, self.count_hash_table]
-        for func in funcs:
-            start_time = timeit.default_timer()
-            print(func(strs))
-            end_time = timeit.default_timer()
-            print(f"Function {func.__name__} took {end_time - start_time:.6f} seconds.")
+        print(f"Input: strs = {strs}")
+        print(f"Sorted Hash Table Output: {self.sorted_hash_table(strs)}")
+        print(f"Count Hash Table Output: {self.count_hash_table(strs)}")
+
+        strs = [""]
+        print(f"Input: strs = {strs}")
+        print(f"Sorted Hash Table Output: {self.sorted_hash_table(strs)}")
+        print(f"Count Hash Table Output: {self.count_hash_table(strs)}")
+
+        strs = ["a"]
+        print(f"Input: strs = {strs}")
+        print(f"Sorted Hash Table Output: {self.sorted_hash_table(strs)}")
+        print(f"Count Hash Table Output: {self.count_hash_table(strs)}")
 
 
 if __name__ == "__main__":

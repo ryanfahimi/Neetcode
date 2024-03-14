@@ -1,12 +1,35 @@
-import timeit
 from typing import List
 from collections import Counter
-import heapq
+
+# 347. Top K Frequent Elements
+# Medium
+
+# Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
+
+
+# Example 1:
+
+# Input: nums = [1,1,1,2,2,3], k = 2
+# Output: [1,2]
+
+# Example 2:
+
+# Input: nums = [1], k = 1
+# Output: [1]
+
+
+# Constraints:
+
+# 1 <= nums.length <= 10^5
+# -10^4 <= nums[i] <= 10^4
+# k is in the range [1, the number of unique elements in the array].
+# It is guaranteed that the answer is unique.
+
+# Follow up: Your algorithm's time complexity must be better than O(n log n), where n is the array's size.
 
 
 class topKFrequent:
     # Time: O(nlogn)
-    # Space: O(n)
     def sorted_hash_table(self, nums: List[int], k: int) -> List[int]:
         # Counter() returns a dictionary
         count = Counter(nums)
@@ -19,7 +42,6 @@ class topKFrequent:
         return sorted(count.keys(), key=lambda x: count[x], reverse=True)[:k]
 
     # Time: O(n)
-    # Space: O(n)
     def bucket_sort(self, nums: List[int], k: int) -> List[int]:
         # Counter() returns a dictionary
         count = Counter(nums)
@@ -36,12 +58,15 @@ class topKFrequent:
     def main(self):
         nums = [1, 1, 1, 2, 2, 3]
         k = 2
-        funcs = [self.sorted_hash_table, self.bucket_sort]
-        for func in funcs:
-            start_time = timeit.default_timer()
-            print(func(nums, k))
-            end_time = timeit.default_timer()
-            print(f"Function {func.__name__} took {end_time - start_time:.6f} seconds.")
+        print(f"Input: nums = {nums}, k = {k}")
+        print(f"Sorted Hash Table Output: {self.sorted_hash_table(nums, k)}")
+        print(f"Bucket Sort Output: {self.bucket_sort(nums, k)}")
+
+        nums = [1]
+        k = 1
+        print(f"Input: nums = {nums}, k = {k}")
+        print(f"Sorted Hash Table Output: {self.sorted_hash_table(nums, k)}")
+        print(f"Bucket Sort Output: {self.bucket_sort(nums, k)}")
 
 
 if __name__ == "__main__":
