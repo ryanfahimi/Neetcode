@@ -37,9 +37,9 @@ from typing import List
 # Follow-up: Can you come up with an algorithm that is less than O(n^2) time complexity?
 
 
-class twoSum:
+class TwoSum:
     # Time: O(n^2)
-    def brute_force(self, nums: List[int], target: int) -> List[int]:
+    def bruteForce(self, nums: List[int], target: int) -> List[int]:
         for i in range(len(nums)):
             for j in range(i + 1, len(nums)):
                 # If the sum of the two numbers equals the target, return the indices of the two numbers
@@ -48,7 +48,7 @@ class twoSum:
         return []
 
     # Time: O(n)
-    def hash_table(self, nums: List[int], target: int) -> List[int]:
+    def hashTable(self, nums: List[int], target: int) -> List[int]:
         sumMap = {}
         for i, n in enumerate(nums):
             # If the complement is in the table, then we have found the pair
@@ -64,21 +64,21 @@ class twoSum:
         nums = [2, 7, 11, 15]
         target = 9
         print(f"Input: nums = {nums}, target = {target}")
-        print(f"Brute Force Output: {self.brute_force(nums, target)}")
-        print(f"Hash Table Output: {self.hash_table(nums, target)}")
+        print(f"Brute Force Output: {self.bruteForce(nums, target)}")
+        print(f"Hash Table Output: {self.hashTable(nums, target)}")
 
         nums = [3, 2, 4]
         target = 6
         print(f"Input: nums = {nums}, target = {target}")
-        print(f"Brute Force Output: {self.brute_force(nums, target)}")
-        print(f"Hash Table Output: {self.hash_table(nums, target)}")
+        print(f"Brute Force Output: {self.bruteForce(nums, target)}")
+        print(f"Hash Table Output: {self.hashTable(nums, target)}")
 
         nums = [3, 3]
         target = 6
         print(f"Input: nums = {nums}, target = {target}")
-        print(f"Brute Force Output: {self.brute_force(nums, target)}")
-        print(f"Hash Table Output: {self.hash_table(nums, target)}")
+        print(f"Brute Force Output: {self.bruteForce(nums, target)}")
+        print(f"Hash Table Output: {self.hashTable(nums, target)}")
 
 
 if __name__ == "__main__":
-    twoSum().main()
+    TwoSum().main()

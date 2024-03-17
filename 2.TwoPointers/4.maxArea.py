@@ -31,32 +31,32 @@ from typing import List
 # 0 <= height[i] <= 10^4
 
 
-class maxArea:
+class Solution:
     # Time: O(n)
-    def two_pointers(self, height: List[int]) -> int:
+    def maxArea(self, height: List[int]) -> int:
         left, right = 0, len(height) - 1
-        max_area = 0
+        maxArea = 0
         while left < right:
             # Calculate the area
             area = min(height[left], height[right]) * (right - left)
             # Update the max area
-            max_area = max(max_area, area)
+            maxArea = max(maxArea, area)
             # Move the pointer with the smaller height
             if height[left] < height[right]:
                 left += 1
             else:
                 right -= 1
-        return max_area
+        return maxArea
 
     def main(self):
         height = [1, 8, 6, 2, 5, 4, 8, 3, 7]
         print(f"Input: height = {height}")
-        print(f"Output: {self.two_pointers(height)}")
+        print(f"Output: {self.maxArea(height)}")
 
         height = [1, 1]
         print(f"Input: height = {height}")
-        print(f"Output: {self.two_pointers(height)}")
+        print(f"Output: {self.maxArea(height)}")
 
 
 if __name__ == "__main__":
-    maxArea().main()
+    Solution().main()

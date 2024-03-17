@@ -38,9 +38,9 @@ from typing import List
 # -10^5 <= nums[i] <= 10^5
 
 
-class threeSum:
+class Solution:
     # Time: O(n^2)
-    def two_pointers(self, nums: List[int]) -> List[List[int]]:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
         nums.sort()
         result = []
         for i in range(len(nums) - 2):
@@ -49,10 +49,10 @@ class threeSum:
                 continue
             left, right = i + 1, len(nums) - 1
             while left < right:
-                curr_sum = nums[i] + nums[left] + nums[right]
-                if curr_sum < 0:
+                currSum = nums[i] + nums[left] + nums[right]
+                if currSum < 0:
                     left += 1
-                elif curr_sum > 0:
+                elif currSum > 0:
                     right -= 1
                 else:  # target == 0
                     result.append([nums[i], nums[left], nums[right]])
@@ -70,16 +70,16 @@ class threeSum:
     def main(self):
         nums = [-1, 0, 1, 2, -1, -4]
         print(f"Input: nums = {nums}")
-        print(f"Output: {self.two_pointers(nums)}")
+        print(f"Output: {self.threeSum(nums)}")
 
         nums = [0, 1, 1]
         print(f"Input: nums = {nums}")
-        print(f"Output: {self.two_pointers(nums)}")
+        print(f"Output: {self.threeSum(nums)}")
 
         nums = [0, 0, 0]
         print(f"Input: nums = {nums}")
-        print(f"Output: {self.two_pointers(nums)}")
+        print(f"Output: {self.threeSum(nums)}")
 
 
 if __name__ == "__main__":
-    threeSum().main()
+    Solution().main()

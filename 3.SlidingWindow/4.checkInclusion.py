@@ -24,30 +24,41 @@
 # s1 and s2 consist of lowercase English letters.
 
 
-class checkInclusion:
+class CheckInclusion:
     # Time: O(n)
     def array(self, s1: str, s2: str) -> bool:
+        # If s1 is longer than s2, return False as s1 cannot be a permutation of s2
         if len(s1) > len(s2):
             return False
 
-        # Count characters in s1
-        s1_count, window_count = [0] * 26, [0] * 26
-        for right in range(len(s1)):
-            s1_count[ord(s1[right]) - ord("a")] += 1
-            window_count[ord(s2[right]) - ord("a")] += 1
+        # Initialize frequency count arrays for s1 and the sliding window in s2
+        s1Count, windowCount = [0] * 26, [0] * 26
 
-        if window_count == s1_count:
+        # Count the frequency of each character in s1 and the first 'len(s1)' characters in s2
+        for right in range(len(s1)):
+            s1Count[ord(s1[right]) - ord("a")] += 1
+            windowCount[ord(s2[right]) - ord("a")] += 1
+
+        # If the frequencies match, return True
+        if windowCount == s1Count:
             return True
 
-        # Slide the window
+        # Initialize the left pointer of the sliding window
         left = 0
+
+        # Slide the window over s2
         for right in range(len(s1), len(s2)):
-            window_count[ord(s2[left]) - ord("a")] -= 1
-            window_count[ord(s2[right]) - ord("a")] += 1
-            if window_count == s1_count:
+            # Remove the character at the left of the window from the window count
+            windowCount[ord(s2[left]) - ord("a")] -= 1
+            # Add the character at the right of the window to the window count
+            windowCount[ord(s2[right]) - ord("a")] += 1
+            # If the frequencies match, return True
+            if windowCount == s1Count:
                 return True
+            # Move the left pointer of the window to the right
             left += 1
 
+        # If no match is found, return False
         return False
 
     # Time: O(n)
@@ -57,17 +68,17 @@ class checkInclusion:
             return False
 
         # Initialize frequency count arrays for s1 and the sliding window in s2
-        s1_count, window_count = [0] * 26, [0] * 26
+        s1Count, windowCount = [0] * 26, [0] * 26
 
         # Count the frequency of each character in s1 and the first 'len(s1)' characters in s2
         for right in range(len(s1)):
-            s1_count[ord(s1[right]) - ord("a")] += 1
-            window_count[ord(s2[right]) - ord("a")] += 1
+            s1Count[ord(s1[right]) - ord("a")] += 1
+            windowCount[ord(s2[right]) - ord("a")] += 1
 
         # Initialize a counter for the number of characters with matching frequencies in s1 and the window
         matches = 0
         for ch in range(26):
-            matches += s1_count[ch] == window_count[ch]
+            matches += s1Count[ch] == windowCount[ch]
 
         # Initialize the left pointer of the sliding window
         left = 0
@@ -79,23 +90,23 @@ class checkInclusion:
                 return True
 
             # Add the character at the right of the window to the window count
-            index = ord(s2[right]) - ord("a")
-            window_count[index] += 1
+            rightCharIndex = ord(s2[right]) - ord("a")
+            windowCount[rightCharIndex] += 1
             # If the frequencies match, increment the matches counter
-            if window_count[index] == s1_count[index]:
+            if windowCount[rightCharIndex] == s1Count[rightCharIndex]:
                 matches += 1
             # If the window count exceeds the s1 count, decrement the matches counter
-            elif window_count[index] == s1_count[index] + 1:
+            elif windowCount[rightCharIndex] == s1Count[rightCharIndex] + 1:
                 matches -= 1
 
             # Remove the character at the left of the window from the window count
-            index = ord(s2[left]) - ord("a")
-            window_count[index] -= 1
+            leftCharIndex = ord(s2[left]) - ord("a")
+            windowCount[leftCharIndex] -= 1
             # If the frequencies match, increment the matches counter
-            if window_count[index] == s1_count[index]:
+            if windowCount[leftCharIndex] == s1Count[leftCharIndex]:
                 matches += 1
             # If the window count falls below the s1 count, decrement the matches counter
-            elif window_count[index] == s1_count[index] - 1:
+            elif windowCount[leftCharIndex] == s1Count[leftCharIndex] - 1:
                 matches -= 1
 
             # Move the left pointer of the window to the right
@@ -119,4 +130,4 @@ class checkInclusion:
 
 
 if __name__ == "__main__":
-    checkInclusion().main()
+    CheckInclusion().main()

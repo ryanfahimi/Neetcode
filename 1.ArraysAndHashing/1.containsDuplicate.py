@@ -28,7 +28,7 @@ from typing import List
 # -10^9 <= nums[i] <= 10^9
 
 
-class containsDuplicate:
+class ContainsDuplicate:
     # Time: O(nlogn)
     def sorted(self, nums: List[int]) -> bool:
         # Sort the numbers
@@ -40,7 +40,7 @@ class containsDuplicate:
         return False
 
     # Time: O(n)
-    def hash_set(self, nums: List[int]) -> bool:
+    def hashSet(self, nums: List[int]) -> bool:
         # Create a set to store the numbers seen so far
         seen = set()
         for num in nums:
@@ -56,18 +56,18 @@ class containsDuplicate:
         nums = [1, 2, 3, 1]
         print(f"Input: nums = {nums}")
         print(f"Sorted Output: {self.sorted(nums)}")
-        print(f"Hash Set Output: {self.hash_set(nums)}")
+        print(f"Hash Set Output: {self.hashSet(nums)}")
 
         nums = [1, 2, 3, 4]
         print(f"Input: nums = {nums}")
         print(f"Sorted Output: {self.sorted(nums)}")
-        print(f"Hash Set Output: {self.hash_set(nums)}")
+        print(f"Hash Set Output: {self.hashSet(nums)}")
 
         nums = [1, 1, 1, 3, 3, 4, 3, 2, 4, 2]
         print(f"Input: nums = {nums}")
         print(f"Sorted Output: {self.sorted(nums)}")
-        print(f"Hash Set Output: {self.hash_set(nums)}")
+        print(f"Hash Set Output: {self.hashSet(nums)}")
 
 
 if __name__ == "__main__":
-    containsDuplicate().main()
+    ContainsDuplicate().main()

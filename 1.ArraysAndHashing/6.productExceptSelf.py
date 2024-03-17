@@ -31,7 +31,7 @@ from typing import List
 # Follow up: Can you solve the problem in O(1) extra space complexity? (The output array does not count as extra space for space complexity analysis.)
 
 
-class productExceptSelf:
+class ProductExceptSelf:
     # Time: O(n)
     def arrays(self, nums: List[int]) -> List[int]:
         length = len(nums)
@@ -85,4 +85,4 @@ class productExceptSelf:
 
 
 if __name__ == "__main__":
-    productExceptSelf().main()
+    ProductExceptSelf().main()

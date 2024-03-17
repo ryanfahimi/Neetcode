@@ -52,9 +52,9 @@ from typing import List
 # board[i][j] is a digit 1-9 or '.'.
 
 
-class validSudoku:
+class ValidSudoku:
     # Time: O(1)
-    def boolean_arrays(self, board: List[List[str]]) -> bool:
+    def booleanArrays(self, board: List[List[str]]) -> bool:
         # Create a list of 9 lists of 9 False values
         rows = [[False] * 9 for _ in range(9)]
         cols = [[False] * 9 for _ in range(9)]
@@ -64,18 +64,18 @@ class validSudoku:
             for j, cell in enumerate(row):
                 if cell != ".":
                     index = int(cell) - 1
-                    box_index = (i // 3) * 3 + j // 3
+                    boxIndex = (i // 3) * 3 + j // 3
                     # If the number is in the row, column, or box
-                    if rows[i][index] or cols[j][index] or boxes[box_index][index]:
+                    if rows[i][index] or cols[j][index] or boxes[boxIndex][index]:
                         return False
                     # Add the number to the row, column, and box
                     rows[i][index] = True
                     cols[j][index] = True
-                    boxes[box_index][index] = True
+                    boxes[boxIndex][index] = True
         return True
 
     # Time: O(1)
-    def hash_set(self, board: List[List[str]]) -> bool:
+    def hashSet(self, board: List[List[str]]) -> bool:
         # Create a set for each row, column, and box
         rows = [set() for _ in range(9)]
         cols = [set() for _ in range(9)]
@@ -84,14 +84,14 @@ class validSudoku:
         for i, row in enumerate(board):
             for j, cell in enumerate(row):
                 if cell != ".":
-                    box_index = (i // 3) * 3 + j // 3
+                    boxIndex = (i // 3) * 3 + j // 3
                     # If the number is in the row, column, or box
-                    if cell in rows[i] or cell in cols[j] or cell in boxes[box_index]:
+                    if cell in rows[i] or cell in cols[j] or cell in boxes[boxIndex]:
                         return False
                     # Add the number to the row, column, and box
                     rows[i].add(cell)
                     cols[j].add(cell)
-                    boxes[box_index].add(cell)
+                    boxes[boxIndex].add(cell)
         return True
 
     def main(self):
@@ -109,8 +109,8 @@ class validSudoku:
         print(f"Input: board = ")
         for row in board:
             print(row)
-        print(f"Boolean Arrays Output: {self.boolean_arrays(board)}")
-        print(f"Hash Set Output: {self.hash_set(board)}")
+        print(f"Boolean Arrays Output: {self.booleanArrays(board)}")
+        print(f"Hash Set Output: {self.hashSet(board)}")
 
         board = [
             ["8", "3", ".", ".", "7", ".", ".", ".", "."],
@@ -126,9 +126,9 @@ class validSudoku:
         print(f"Input: board = ")
         for row in board:
             print(row)
-        print(f"Boolean Arrays Output: {self.boolean_arrays(board)}")
-        print(f"Hash Set Output: {self.hash_set(board)}")
+        print(f"Boolean Arrays Output: {self.booleanArrays(board)}")
+        print(f"Hash Set Output: {self.hashSet(board)}")
 
 
 if __name__ == "__main__":
-    validSudoku().main()
+    ValidSudoku().main()

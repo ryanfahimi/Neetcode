@@ -31,9 +31,9 @@ from typing import List
 # strs[i] consists of lowercase English letters.
 
 
-class groupAnagrams:
+class GroupAnagrams:
     # Time: O(nklogk)
-    def sorted_hash_table(self, strs: List[str]) -> List[List[str]]:
+    def sortedHashTable(self, strs: List[str]) -> List[List[str]]:
         anagrams = {}
         for s in strs:
             # sorted() returns a list
@@ -43,7 +43,7 @@ class groupAnagrams:
         return list(anagrams.values())
 
     # Time: O(nk)
-    def count_hash_table(self, strs: List[str]) -> List[List[str]]:
+    def countHashTable(self, strs: List[str]) -> List[List[str]]:
         anagrams = {}
         for s in strs:
             # Create a list of 26 zeros
@@ -61,19 +61,19 @@ class groupAnagrams:
     def main(self):
         strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
         print(f"Input: strs = {strs}")
-        print(f"Sorted Hash Table Output: {self.sorted_hash_table(strs)}")
-        print(f"Count Hash Table Output: {self.count_hash_table(strs)}")
+        print(f"Sorted Hash Table Output: {self.sortedHashTable(strs)}")
+        print(f"Count Hash Table Output: {self.countHashTable(strs)}")
 
         strs = [""]
         print(f"Input: strs = {strs}")
-        print(f"Sorted Hash Table Output: {self.sorted_hash_table(strs)}")
-        print(f"Count Hash Table Output: {self.count_hash_table(strs)}")
+        print(f"Sorted Hash Table Output: {self.sortedHashTable(strs)}")
+        print(f"Count Hash Table Output: {self.countHashTable(strs)}")
 
         strs = ["a"]
         print(f"Input: strs = {strs}")
-        print(f"Sorted Hash Table Output: {self.sorted_hash_table(strs)}")
-        print(f"Count Hash Table Output: {self.count_hash_table(strs)}")
+        print(f"Sorted Hash Table Output: {self.sortedHashTable(strs)}")
+        print(f"Count Hash Table Output: {self.countHashTable(strs)}")
 
 
 if __name__ == "__main__":
-    groupAnagrams().main()
+    GroupAnagrams().main()

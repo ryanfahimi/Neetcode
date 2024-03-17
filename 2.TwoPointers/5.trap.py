@@ -25,34 +25,34 @@ from typing import List
 # 0 <= height[i] <= 10^5
 
 
-class trap:
+class Solution:
     # Time: O(n)
-    def two_pointers(self, height: List[int]) -> int:
+    def trap(self, height: List[int]) -> int:
         left, right = 0, len(height) - 1
-        max_left, max_right = height[left], height[right]
+        maxLeft, maxRight = height[left], height[right]
         total = 0
         while left < right:
             if height[left] < height[right]:
                 left += 1
-                max_left = max(max_left, height[left])
+                maxLeft = max(maxLeft, height[left])
                 # Add the difference between the max height and the current height
-                total += max_left - height[left]
+                total += maxLeft - height[left]
             else:
                 right -= 1
-                max_right = max(max_right, height[right])
+                maxRight = max(maxRight, height[right])
                 # Add the difference between the max height and the current height
-                total += max_right - height[right]
+                total += maxRight - height[right]
         return total
 
     def main(self):
         height = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
         print(f"Input: height = {height}")
-        print(f"Output: {self.two_pointers(height)}")
+        print(f"Output: {self.trap(height)}")
 
         height = [4, 2, 0, 3, 2, 5]
         print(f"Input: height = {height}")
-        print(f"Output: {self.two_pointers(height)}")
+        print(f"Output: {self.trap(height)}")
 
 
 if __name__ == "__main__":
-    trap().main()
+    Solution().main()

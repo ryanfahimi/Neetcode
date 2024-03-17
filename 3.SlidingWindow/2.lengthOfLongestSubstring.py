@@ -1,9 +1,7 @@
 # 3. Longest Substring Without Repeating Characters
 # Medium
 
-# Given a string s, find the length of the longest
-# substring
-#  without repeating characters.
+# Given a string s, find the length of the longest substring without repeating characters.
 
 
 # Example 1:
@@ -32,59 +30,59 @@
 # s consists of English letters, digits, symbols and spaces.
 
 
-class lengthOfLongestSubstring:
+class LengthOfLongestSubstring:
     # Time: O(n)
-    def hash_table(self, s: str) -> int:
+    def hashTable(self, s: str) -> int:
         # Create a dictionary to store the characters and their indices
-        char_dict = {}
+        charDict = {}
         # Initialize the start of the window and the maximum length
-        left, max_length = 0, 0
+        left, maxLength = 0, 0
         for right in range(len(s)):
             # If the character is in the dictionary
-            if s[right] in char_dict:
+            if s[right] in charDict:
                 # Update the start of the window
-                left = max(left, char_dict[s[right]] + 1)
+                left = max(left, charDict[s[right]] + 1)
             # Add the character and its index to the dictionary
-            char_dict[s[right]] = right
+            charDict[s[right]] = right
             # Update the maximum length
-            max_length = max(max_length, right - left + 1)
-        return max_length
+            maxLength = max(maxLength, right - left + 1)
+        return maxLength
 
     # Time: O(n)
-    def hash_set(self, s: str) -> int:
+    def hashSet(self, s: str) -> int:
         # Create a set to store the characters
-        char_set = set()
+        charSet = set()
         # Initialize the start of the window and the maximum length
-        left, max_length = 0, 0
+        left, maxLength = 0, 0
         for right in range(len(s)):
             # If the character is in the set
-            while s[right] in char_set:
+            while s[right] in charSet:
                 # Remove the character at the start of the window
-                char_set.remove(s[left])
+                charSet.remove(s[left])
                 # Update the start of the window
                 left += 1
             # Add the character to the set
-            char_set.add(s[right])
+            charSet.add(s[right])
             # Update the maximum length
-            max_length = max(max_length, right - left + 1)
-        return max_length
+            maxLength = max(maxLength, right - left + 1)
+        return maxLength
 
     def main(self):
-        s = "abcabcdbb"
+        s = "abcabcbb"
         print(f"Input: s = {s}")
-        print(f"Hash Table Output: {self.hash_table(s)}")
-        print(f"Hash Set Output: {self.hash_set(s)}")
+        print(f"Hash Table Output: {self.hashTable(s)}")
+        print(f"Hash Set Output: {self.hashSet(s)}")
 
         s = "bbbbb"
         print(f"Input: s = {s}")
-        print(f"Hash Table Output: {self.hash_table(s)}")
-        print(f"Hash Set Output: {self.hash_set(s)}")
+        print(f"Hash Table Output: {self.hashTable(s)}")
+        print(f"Hash Set Output: {self.hashSet(s)}")
 
         s = "pwwkew"
         print(f"Input: s = {s}")
-        print(f"Hash Table Output: {self.hash_table(s)}")
-        print(f"Hash Set Output: {self.hash_set(s)}")
+        print(f"Hash Table Output: {self.hashTable(s)}")
+        print(f"Hash Set Output: {self.hashSet(s)}")
 
 
 if __name__ == "__main__":
-    lengthOfLongestSubstring().main()
+    LengthOfLongestSubstring().main()

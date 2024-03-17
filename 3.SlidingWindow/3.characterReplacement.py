@@ -28,70 +28,44 @@
 # 0 <= k <= s.length
 
 
-class characterReplacement:
+class Solution:
     # Time: O(n)
-    def hash_table(self, s: str, k: int) -> int:
+    def characterReplacement(self, s: str, k: int) -> int:
         # Create a dictionary to store the frequency of each character
-        char_dict = {}
-        # Initialize the left and right pointers
-        left = 0
-        # Initialize the max length
-        max_length = 0
-        # Iterate through the string
-        for right in range(len(s)):
-            # Add the character to the dictionary
-            char_dict[s[right]] = char_dict.get(s[right], 0) + 1
-            # Calculate the current length
-            current_length = right - left + 1
-            # If the current length minus the max count is greater than k
-            if current_length - max(char_dict.values()) > k:
-                # Decrement the frequency of the character at the left pointer
-                char_dict[s[left]] -= 1
-                # Increment the left pointer
-                left += 1
-            # Update the max length
-            max_length = max(max_length, right - left + 1)
-        return max_length
-
-    # Time: O(n)
-    def max_count(self, s: str, k: int) -> int:
-        # Create a dictionary to store the frequency of each character
-        char_dict = {}
+        charDict = {}
         # Initialize the left and right pointers
         left = 0
         # Initialize the max count and max length
-        max_count = max_length = 0
+        maxCount = maxLength = 0
         # Iterate through the string
         for right in range(len(s)):
             # Add the character to the dictionary
-            char_dict[s[right]] = char_dict.get(s[right], 0) + 1
+            charDict[s[right]] = charDict.get(s[right], 0) + 1
             # Update the max count
-            max_count = max(max_count, char_dict[s[right]])
+            maxCount = max(maxCount, charDict[s[right]])
             # Calculate the current length
-            current_length = right - left + 1
+            currentLength = right - left + 1
             # If the current length minus the max count is greater than k
-            if current_length - max_count > k:
+            if currentLength - maxCount > k:
                 # Decrement the frequency of the character at the left pointer
-                char_dict[s[left]] -= 1
+                charDict[s[left]] -= 1
                 # Increment the left pointer
                 left += 1
             # Update the max length
-            max_length = max(max_length, right - left + 1)
-        return max_length
+            maxLength = max(maxLength, right - left + 1)
+        return maxLength
 
     def main(self):
         s = "ABAB"
         k = 2
         print(f"Input: s = {s}, k = {k}")
-        print(f"Hash Table Output: {self.hash_table(s, k)}")
-        print(f"Max Count Output: {self.max_count(s, k)}")
+        print(f"Output: {self.characterReplacement(s, k)}")
 
         s = "AABABBA"
         k = 1
         print(f"Input: s = {s}, k = {k}")
-        print(f"Hash Table Output: {self.hash_table(s, k)}")
-        print(f"Max Count Output: {self.max_count(s, k)}")
+        print(f"Output: {self.characterReplacement(s, k)}")
 
 
 if __name__ == "__main__":
-    characterReplacement().main()
+    Solution().main()

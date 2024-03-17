@@ -30,29 +30,29 @@ from typing import List
 # 0 <= prices[i] <= 10^4
 
 
-class maxProfit:
+class Solution:
     # Time: O(n)
-    def sliding_window(self, prices: List[int]) -> int:
-        min_price = prices[0]
-        max_profit = 0
+    def maxProfit(self, prices: List[int]) -> int:
+        minPrice = prices[0]
+        maxProfit = 0
         for price in prices:
             # Update the minimum price
-            min_price = min(min_price, price)
+            minPrice = min(minPrice, price)
             # Calculate the profit
-            profit = price - min_price
+            profit = price - minPrice
             # Update the maximum profit
-            max_profit = max(max_profit, profit)
-        return max_profit
+            maxProfit = max(maxProfit, profit)
+        return maxProfit
 
     def main(self):
         prices = [7, 1, 5, 3, 6, 4]
         print(f"Input: prices = {prices}")
-        print(f"Output: {self.sliding_window(prices)}")
+        print(f"Output: {self.maxProfit(prices)}")
 
         prices = [7, 6, 4, 3, 1]
         print(f"Input: prices = {prices}")
-        print(f"Output: {self.sliding_window(prices)}")
+        print(f"Output: {self.maxProfit(prices)}")
 
 
 if __name__ == "__main__":
-    maxProfit().main()
+    Solution().main()

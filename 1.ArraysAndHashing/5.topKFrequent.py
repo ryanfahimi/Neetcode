@@ -28,9 +28,9 @@ from collections import Counter
 # Follow up: Your algorithm's time complexity must be better than O(n log n), where n is the array's size.
 
 
-class topKFrequent:
+class TopKFrequent:
     # Time: O(nlogn)
-    def sorted_hash_table(self, nums: List[int], k: int) -> List[int]:
+    def sortedHashTable(self, nums: List[int], k: int) -> List[int]:
         # Counter() returns a dictionary
         count = Counter(nums)
         # sorted() returns a list
@@ -42,7 +42,7 @@ class topKFrequent:
         return sorted(count.keys(), key=lambda x: count[x], reverse=True)[:k]
 
     # Time: O(n)
-    def bucket_sort(self, nums: List[int], k: int) -> List[int]:
+    def bucketSort(self, nums: List[int], k: int) -> List[int]:
         # Counter() returns a dictionary
         count = Counter(nums)
         # Create a list of empty lists
@@ -51,23 +51,23 @@ class topKFrequent:
         for num, freq in count.items():
             bucket[freq].append(num)
         # Flatten the list of lists
-        flat_list = [item for sublist in bucket for item in sublist]
+        flatList = [item for sublist in bucket for item in sublist]
         # Return the last k elements of the list
-        return flat_list[-k:]
+        return flatList[-k:]
 
     def main(self):
         nums = [1, 1, 1, 2, 2, 3]
         k = 2
         print(f"Input: nums = {nums}, k = {k}")
-        print(f"Sorted Hash Table Output: {self.sorted_hash_table(nums, k)}")
-        print(f"Bucket Sort Output: {self.bucket_sort(nums, k)}")
+        print(f"Sorted Hash Table Output: {self.sortedHashTable(nums, k)}")
+        print(f"Bucket Sort Output: {self.bucketSort(nums, k)}")
 
         nums = [1]
         k = 1
         print(f"Input: nums = {nums}, k = {k}")
-        print(f"Sorted Hash Table Output: {self.sorted_hash_table(nums, k)}")
-        print(f"Bucket Sort Output: {self.bucket_sort(nums, k)}")
+        print(f"Sorted Hash Table Output: {self.sortedHashTable(nums, k)}")
+        print(f"Bucket Sort Output: {self.bucketSort(nums, k)}")
 
 
 if __name__ == "__main__":
-    topKFrequent().main()
+    TopKFrequent().main()

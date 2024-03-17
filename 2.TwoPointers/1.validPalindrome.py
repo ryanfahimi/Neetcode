@@ -32,9 +32,9 @@
 # s consists only of printable ASCII characters.
 
 
-class validPalindromes:
+class Solution:
     # Time: O(n)
-    def two_pointers(self, s: str) -> bool:
+    def isPalindrome(self, s: str) -> bool:
         # Initialize two pointers at the start (left) and end (right) of the string
         left, right = 0, len(s) - 1
 
@@ -60,16 +60,16 @@ class validPalindromes:
     def main(self):
         s = "A man, a plan, a canal: Panama"
         print(f"Input: s = {s}")
-        print(f"Output: {self.two_pointers(s)}")
+        print(f"Output: {self.isPalindrome(s)}")
 
         s = "race a car"
         print(f"Input: s = {s}")
-        print(f"Output: {self.two_pointers(s)}")
+        print(f"Output: {self.isPalindrome(s)}")
 
         s = " "
         print(f"Input: s = {s}")
-        print(f"Output: {self.two_pointers(s)}")
+        print(f"Output: {self.isPalindrome(s)}")
 
 
 if __name__ == "__main__":
-    validPalindromes().main()
+    Solution().main()

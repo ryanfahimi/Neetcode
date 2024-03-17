@@ -40,22 +40,22 @@ from typing import List
 # The tests are generated such that there is exactly one solution.
 
 
-class twoSum:
+class Solution:
     # Time: O(n)
-    def two_pointers(self, numbers: List[int], target: int) -> List[int]:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
         # Initialize two pointers at the start (left) and end (right) of the list
         left, right = 0, len(numbers) - 1
 
         # Continue until the two pointers meet
         while left < right:
             # Calculate the current sum of the elements at the left and right pointers
-            curr_sum = numbers[left] + numbers[right]
+            currSum = numbers[left] + numbers[right]
 
             # If the current sum equals the target, return the indices of the two numbers
-            if curr_sum == target:
+            if currSum == target:
                 return [left, right]
             # If the current sum is less than the target, move the left pointer to the right
-            elif curr_sum < target:
+            elif currSum < target:
                 left += 1
             # If the current sum is greater than the target, move the right pointer to the left
             else:
@@ -68,18 +68,18 @@ class twoSum:
         numbers = [2, 7, 11, 15]
         target = 9
         print(f"Input: numbers = {numbers}, target = {target}")
-        print(f"Output: {self.two_pointers(numbers, target)}")
+        print(f"Output: {self.twoSum(numbers, target)}")
 
         numbers = [2, 3, 4]
         target = 6
         print(f"Input: numbers = {numbers}, target = {target}")
-        print(f"Output: {self.two_pointers(numbers, target)}")
+        print(f"Output: {self.twoSum(numbers, target)}")
 
         numbers = [-1, 0]
         target = -1
         print(f"Input: numbers = {numbers}, target = {target}")
-        print(f"Output: {self.two_pointers(numbers, target)}")
+        print(f"Output: {self.twoSum(numbers, target)}")
 
 
 if __name__ == "__main__":
-    twoSum().main()
+    Solution().main()

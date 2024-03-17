@@ -27,7 +27,7 @@ from collections import Counter
 # Follow up: What if the inputs contain Unicode characters? How would you adapt your solution to such a case?
 
 
-class validAnagram:
+class ValidAnagram:
     # Time: O(n)
     def array(self, s: str, t: str) -> bool:
         if len(s) != len(t):
@@ -50,7 +50,7 @@ class validAnagram:
         return sorted(s) == sorted(t)
 
     # Time: O(n)
-    def hash_table(self, s: str, t: str) -> bool:
+    def hashTable(self, s: str, t: str) -> bool:
         # Counter() returns a dictionary
         return Counter(s) == Counter(t)
 
@@ -59,14 +59,14 @@ class validAnagram:
         print(f"Input: s = {s}, t = {t}")
         print(f"Array Output: {self.array(s, t)}")
         print(f"Sorted Output: {self.sorted(s, t)}")
-        print(f"Hash Table Output: {self.hash_table(s, t)}")
+        print(f"Hash Table Output: {self.hashTable(s, t)}")
 
         s, t = "rat", "car"
         print(f"Input: s = {s}, t = {t}")
         print(f"Array Output: {self.array(s, t)}")
         print(f"Sorted Output: {self.sorted(s, t)}")
-        print(f"Hash Table Output: {self.hash_table(s, t)}")
+        print(f"Hash Table Output: {self.hashTable(s, t)}")
 
 
 if __name__ == "__main__":
-    validAnagram().main()
+    ValidAnagram().main()
