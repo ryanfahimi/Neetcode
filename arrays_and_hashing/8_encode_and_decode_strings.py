@@ -30,16 +30,16 @@ class Solution:
 
     # Time: O(n)
     def encode(self, strs: List[str]) -> str:
-        encodedStr = ""
+        encoded_str = ""
         for s in strs:
             # The length of the string is converted to a string and concatenated with a colon and the string itself.
             # The resulting list of encoded strings is then joined into a single string with no separator.
-            encodedStr += str(len(s)) + ":" + s
-        return encodedStr
+            encoded_str += str(len(s)) + ":" + s
+        return encoded_str
 
     # Time: O(n)
     def decode(self, s: str) -> List[str]:
-        decodedStrs = []
+        decoded_strs = []
         i = 0
         while i < len(s):
             # The index is updated to the start of the next string.
@@ -56,8 +56,8 @@ class Solution:
             i = j + 1 + length
 
             # The string is then extracted using the length and added to the result list.
-            decodedStrs.append(s[j + 1 : i])
-        return decodedStrs
+            decoded_strs.append(s[j + 1 : i])
+        return decoded_strs
 
     def main(self):
         strs = ["neet", "code", "love", "you"]

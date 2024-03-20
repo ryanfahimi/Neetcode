@@ -32,56 +32,56 @@
 
 class LengthOfLongestSubstring:
     # Time: O(n)
-    def hashTable(self, s: str) -> int:
-        # Create a dictionary to store the characters and their indices
-        charDict = {}
+    def by_hash_map(self, s: str) -> int:
+        # Create a hash map to store the characters and their indices
+        characters = {}
         # Initialize the start of the window and the maximum length
-        left, maxLength = 0, 0
+        left, max_length = 0, 0
         for right in range(len(s)):
-            # If the character is in the dictionary
-            if s[right] in charDict:
+            # If the character is in the hash map
+            if s[right] in characters:
                 # Update the start of the window
-                left = max(left, charDict[s[right]] + 1)
-            # Add the character and its index to the dictionary
-            charDict[s[right]] = right
+                left = max(left, characters[s[right]] + 1)
+            # Add the character and its index to the hash map
+            characters[s[right]] = right
             # Update the maximum length
-            maxLength = max(maxLength, right - left + 1)
-        return maxLength
+            max_length = max(max_length, right - left + 1)
+        return max_length
 
     # Time: O(n)
-    def hashSet(self, s: str) -> int:
+    def by_hash_set(self, s: str) -> int:
         # Create a set to store the characters
-        charSet = set()
+        char_set = set()
         # Initialize the start of the window and the maximum length
-        left, maxLength = 0, 0
+        left, max_length = 0, 0
         for right in range(len(s)):
             # If the character is in the set
-            while s[right] in charSet:
+            while s[right] in char_set:
                 # Remove the character at the start of the window
-                charSet.remove(s[left])
+                char_set.remove(s[left])
                 # Update the start of the window
                 left += 1
             # Add the character to the set
-            charSet.add(s[right])
+            char_set.add(s[right])
             # Update the maximum length
-            maxLength = max(maxLength, right - left + 1)
-        return maxLength
+            max_length = max(max_length, right - left + 1)
+        return max_length
 
     def main(self):
         s = "abcabcbb"
         print(f"Input: s = {s}")
-        print(f"Hash Table Output: {self.hashTable(s)}")
-        print(f"Hash Set Output: {self.hashSet(s)}")
+        print(f"Hash Map Output: {self.by_hash_map(s)}")
+        print(f"Hash Set Output: {self.by_hash_set(s)}")
 
         s = "bbbbb"
         print(f"Input: s = {s}")
-        print(f"Hash Table Output: {self.hashTable(s)}")
-        print(f"Hash Set Output: {self.hashSet(s)}")
+        print(f"Hash Map Output: {self.by_hash_map(s)}")
+        print(f"Hash Set Output: {self.by_hash_set(s)}")
 
         s = "pwwkew"
         print(f"Input: s = {s}")
-        print(f"Hash Table Output: {self.hashTable(s)}")
-        print(f"Hash Set Output: {self.hashSet(s)}")
+        print(f"Hash Map Output: {self.by_hash_map(s)}")
+        print(f"Hash Set Output: {self.by_hash_set(s)}")
 
 
 if __name__ == "__main__":

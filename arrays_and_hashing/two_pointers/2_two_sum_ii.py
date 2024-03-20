@@ -42,20 +42,20 @@ from typing import List
 
 class Solution:
     # Time: O(n)
-    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+    def two_sum(self, numbers: List[int], target: int) -> List[int]:
         # Initialize two pointers at the start (left) and end (right) of the list
         left, right = 0, len(numbers) - 1
 
         # Continue until the two pointers meet
         while left < right:
             # Calculate the current sum of the elements at the left and right pointers
-            currSum = numbers[left] + numbers[right]
+            curr_sum = numbers[left] + numbers[right]
 
             # If the current sum equals the target, return the indices of the two numbers
-            if currSum == target:
-                return [left, right]
+            if curr_sum == target:
+                return [left + 1, right + 1]
             # If the current sum is less than the target, move the left pointer to the right
-            elif currSum < target:
+            elif curr_sum < target:
                 left += 1
             # If the current sum is greater than the target, move the right pointer to the left
             else:
@@ -68,17 +68,17 @@ class Solution:
         numbers = [2, 7, 11, 15]
         target = 9
         print(f"Input: numbers = {numbers}, target = {target}")
-        print(f"Output: {self.twoSum(numbers, target)}")
+        print(f"Output: {self.two_sum(numbers, target)}")
 
         numbers = [2, 3, 4]
         target = 6
         print(f"Input: numbers = {numbers}, target = {target}")
-        print(f"Output: {self.twoSum(numbers, target)}")
+        print(f"Output: {self.two_sum(numbers, target)}")
 
         numbers = [-1, 0]
         target = -1
         print(f"Input: numbers = {numbers}, target = {target}")
-        print(f"Output: {self.twoSum(numbers, target)}")
+        print(f"Output: {self.two_sum(numbers, target)}")
 
 
 if __name__ == "__main__":

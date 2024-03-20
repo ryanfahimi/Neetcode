@@ -33,7 +33,7 @@ from typing import List
 
 class ProductExceptSelf:
     # Time: O(n)
-    def arrays(self, nums: List[int]) -> List[int]:
+    def by_arrays(self, nums: List[int]) -> List[int]:
         length = len(nums)
         # Create a three lists of size n
         output = [1] * length
@@ -54,7 +54,7 @@ class ProductExceptSelf:
         return output
 
     # Time: O(n)
-    def array(self, nums: List[int]) -> List[int]:
+    def by_array(self, nums: List[int]) -> List[int]:
         length = len(nums)
         # Create a list of size n
         output = [1] * length
@@ -75,13 +75,13 @@ class ProductExceptSelf:
     def main(self):
         nums = [1, 2, 3, 4]
         print(f"Input: nums = {nums}")
-        print(f"Arrays Output: {self.arrays(nums)}")
-        print(f"Array Output: {self.array(nums)}")
+        print(f"Arrays Output: {self.by_arrays(nums)}")
+        print(f"Array Output: {self.by_array(nums)}")
 
         nums = [-1, 1, 0, -3, 3]
         print(f"Input: nums = {nums}")
-        print(f"Arrays Output: {self.arrays(nums)}")
-        print(f"Array Output: {self.array(nums)}")
+        print(f"Arrays Output: {self.by_arrays(nums)}")
+        print(f"Array Output: {self.by_array(nums)}")
 
 
 if __name__ == "__main__":

@@ -33,17 +33,17 @@ from typing import List
 
 class GroupAnagrams:
     # Time: O(nklogk)
-    def sortedHashTable(self, strs: List[str]) -> List[List[str]]:
+    def by_sorting(self, strs: List[str]) -> List[List[str]]:
         anagrams = {}
         for s in strs:
             # sorted() returns a list
             key = tuple(sorted(s))  # Convert the list to a tuple
-            # If the key is not in the dictionary, then add it
+            # If the key is not in the hash map, then add it
             anagrams[key] = anagrams.get(key, []) + [s]
         return list(anagrams.values())
 
     # Time: O(nk)
-    def countHashTable(self, strs: List[str]) -> List[List[str]]:
+    def by_counting(self, strs: List[str]) -> List[List[str]]:
         anagrams = {}
         for s in strs:
             # Create a list of 26 zeros
@@ -54,25 +54,25 @@ class GroupAnagrams:
                 # gives us the index of the character in the list
                 count[ord(char) - ord("a")] += 1  # Increment the count of the character
             key = tuple(count)  # Convert the list to a tuple
-            # If the key is not in the dictionary, then add it
+            # If the key is not in the hash map, then add it
             anagrams[key] = anagrams.get(key, []) + [s]
         return list(anagrams.values())
 
     def main(self):
         strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
         print(f"Input: strs = {strs}")
-        print(f"Sorted Hash Table Output: {self.sortedHashTable(strs)}")
-        print(f"Count Hash Table Output: {self.countHashTable(strs)}")
+        print(f"Sorting Output: {self.by_sorting(strs)}")
+        print(f"Counting Output: {self.by_counting(strs)}")
 
         strs = [""]
         print(f"Input: strs = {strs}")
-        print(f"Sorted Hash Table Output: {self.sortedHashTable(strs)}")
-        print(f"Count Hash Table Output: {self.countHashTable(strs)}")
+        print(f"Sorting Output: {self.by_sorting(strs)}")
+        print(f"Counting Output: {self.by_counting(strs)}")
 
         strs = ["a"]
         print(f"Input: strs = {strs}")
-        print(f"Sorted Hash Table Output: {self.sortedHashTable(strs)}")
-        print(f"Count Hash Table Output: {self.countHashTable(strs)}")
+        print(f"Sorting Output: {self.by_sorting(strs)}")
+        print(f"Counting Output: {self.by_counting(strs)}")
 
 
 if __name__ == "__main__":

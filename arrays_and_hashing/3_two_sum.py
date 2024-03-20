@@ -39,7 +39,7 @@ from typing import List
 
 class TwoSum:
     # Time: O(n^2)
-    def bruteForce(self, nums: List[int], target: int) -> List[int]:
+    def by_brute_force(self, nums: List[int], target: int) -> List[int]:
         for i in range(len(nums)):
             for j in range(i + 1, len(nums)):
                 # If the sum of the two numbers equals the target, return the indices of the two numbers
@@ -48,36 +48,36 @@ class TwoSum:
         return []
 
     # Time: O(n)
-    def hashTable(self, nums: List[int], target: int) -> List[int]:
-        sumMap = {}
+    def by_hash_map(self, nums: List[int], target: int) -> List[int]:
+        sum_map = {}
         for i, n in enumerate(nums):
-            # If the complement is in the table, then we have found the pair
+            # If the complement is in the map, then we have found the pair
             complement = target - n
-            if complement in sumMap:
+            if complement in sum_map:
                 # Return the indices of the pair
-                return [sumMap[complement], i]
-            # Otherwise, add the number to the table
-            sumMap[n] = i
+                return [sum_map[complement], i]
+            # Otherwise, add the number to the map
+            sum_map[n] = i
         return []
 
     def main(self):
         nums = [2, 7, 11, 15]
         target = 9
         print(f"Input: nums = {nums}, target = {target}")
-        print(f"Brute Force Output: {self.bruteForce(nums, target)}")
-        print(f"Hash Table Output: {self.hashTable(nums, target)}")
+        print(f"Brute Force Output: {self.by_brute_force(nums, target)}")
+        print(f"Hash Map Output: {self.by_hash_map(nums, target)}")
 
         nums = [3, 2, 4]
         target = 6
         print(f"Input: nums = {nums}, target = {target}")
-        print(f"Brute Force Output: {self.bruteForce(nums, target)}")
-        print(f"Hash Table Output: {self.hashTable(nums, target)}")
+        print(f"Brute Force Output: {self.by_brute_force(nums, target)}")
+        print(f"Hash Map Output: {self.by_hash_map(nums, target)}")
 
         nums = [3, 3]
         target = 6
         print(f"Input: nums = {nums}, target = {target}")
-        print(f"Brute Force Output: {self.bruteForce(nums, target)}")
-        print(f"Hash Table Output: {self.hashTable(nums, target)}")
+        print(f"Brute Force Output: {self.by_brute_force(nums, target)}")
+        print(f"Hash Map Output: {self.by_hash_map(nums, target)}")
 
 
 if __name__ == "__main__":

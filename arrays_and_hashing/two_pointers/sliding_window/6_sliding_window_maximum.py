@@ -37,17 +37,17 @@ from collections import deque
 
 class MaxSlidingWindow:
     # Time: O(k(n-k))
-    def bruteForce(self, nums: List[int], k: int) -> List[int]:
+    def by_array(self, nums: List[int], k: int) -> List[int]:
         # Initialize the left and right pointers
         left, right = 0, k - 1
 
         # Initialize the max value and the max index
-        maxValue, maxIndex = max(nums[left : right + 1]), nums.index(
+        max_value, max_index = max(nums[left : right + 1]), nums.index(
             max(nums[left : right + 1])
         )
 
         # Initialize the result array
-        result = [maxValue]
+        result = [max_value]
 
         # Slide the window over the array
         while right < len(nums) - 1:
@@ -56,22 +56,22 @@ class MaxSlidingWindow:
             right += 1
 
             # If the max index is within the window
-            if maxIndex >= left:
+            if max_index >= left:
                 # Update the max value and the max index
-                if nums[right] >= maxValue:
-                    maxValue = nums[right]
-                    maxIndex = right
+                if nums[right] >= max_value:
+                    max_value = nums[right]
+                    max_index = right
             else:
                 # Update the max value and the max index
-                maxValue = max(nums[left : right + 1])
-                maxIndex = nums.index(maxValue)
+                max_value = max(nums[left : right + 1])
+                max_index = nums.index(max_value)
 
             # Append the max value to the result array
-            result.append(maxValue)
+            result.append(max_value)
 
         return result
 
-    def deque(self, nums: List[int], k: int) -> List[int]:
+    def by_deque(self, nums: List[int], k: int) -> List[int]:
         # Initialize the deque
         dq = deque()
 
@@ -109,14 +109,14 @@ class MaxSlidingWindow:
         nums = [1, 3, -1, -3, 5, 3, 6, 7]
         k = 3
         print(f"Input: nums = {nums}, k = {k}")
-        print(f"Brute Force Output: {self.bruteForce(nums, k)}")
-        print(f"Deque Output: {self.deque(nums, k)}")
+        print(f"Array Output: {self.by_array(nums, k)}")
+        print(f"Deque Output: {self.by_deque(nums, k)}")
 
         nums = [1]
         k = 1
         print(f"Input: nums = {nums}, k = {k}")
-        print(f"Brute Force Output: {self.bruteForce(nums, k)}")
-        print(f"Deque Output: {self.deque(nums, k)}")
+        print(f"Array Output: {self.by_array(nums, k)}")
+        print(f"Deque Output: {self.by_deque(nums, k)}")
 
 
 if __name__ == "__main__":

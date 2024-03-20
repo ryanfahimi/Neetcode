@@ -30,8 +30,8 @@ from collections import Counter
 
 class TopKFrequent:
     # Time: O(nlogn)
-    def sortedHashTable(self, nums: List[int], k: int) -> List[int]:
-        # Counter() returns a dictionary
+    def by_sorting(self, nums: List[int], k: int) -> List[int]:
+        # Counter() returns a hash map
         count = Counter(nums)
         # sorted() returns a list
         # count.keys() is the iterable
@@ -42,31 +42,31 @@ class TopKFrequent:
         return sorted(count.keys(), key=lambda x: count[x], reverse=True)[:k]
 
     # Time: O(n)
-    def bucketSort(self, nums: List[int], k: int) -> List[int]:
-        # Counter() returns a dictionary
-        count = Counter(nums)
+    def by_bucket_sort(self, nums: List[int], k: int) -> List[int]:
+        # Counter() returns a hash map
+        nums_count = Counter(nums)
         # Create a list of empty lists
         bucket = [[] for _ in range(len(nums) + 1)]
         # Add the numbers to the list at the index of their frequency
-        for num, freq in count.items():
-            bucket[freq].append(num)
+        for num, nums_count in nums_count.items():
+            bucket[nums_count].append(num)
         # Flatten the list of lists
-        flatList = [item for sublist in bucket for item in sublist]
+        flat_list = [item for sublist in bucket for item in sublist]
         # Return the last k elements of the list
-        return flatList[-k:]
+        return flat_list[-k:]
 
     def main(self):
         nums = [1, 1, 1, 2, 2, 3]
         k = 2
         print(f"Input: nums = {nums}, k = {k}")
-        print(f"Sorted Hash Table Output: {self.sortedHashTable(nums, k)}")
-        print(f"Bucket Sort Output: {self.bucketSort(nums, k)}")
+        print(f"Sorting Output: {self.by_sorting(nums, k)}")
+        print(f"Bucket Sort Output: {self.by_bucket_sort(nums, k)}")
 
         nums = [1]
         k = 1
         print(f"Input: nums = {nums}, k = {k}")
-        print(f"Sorted Hash Table Output: {self.sortedHashTable(nums, k)}")
-        print(f"Bucket Sort Output: {self.bucketSort(nums, k)}")
+        print(f"Sorting Output: {self.by_sorting(nums, k)}")
+        print(f"Bucket Sort Output: {self.by_bucket_sort(nums, k)}")
 
 
 if __name__ == "__main__":

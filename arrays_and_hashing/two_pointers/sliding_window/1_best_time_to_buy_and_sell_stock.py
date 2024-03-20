@@ -32,26 +32,26 @@ from typing import List
 
 class Solution:
     # Time: O(n)
-    def maxProfit(self, prices: List[int]) -> int:
-        minPrice = prices[0]
-        maxProfit = 0
+    def max_profit(self, prices: List[int]) -> int:
+        min_price = prices[0]
+        max_profit = 0
         for price in prices:
             # Update the minimum price
-            minPrice = min(minPrice, price)
+            min_price = min(min_price, price)
             # Calculate the profit
-            profit = price - minPrice
+            profit = price - min_price
             # Update the maximum profit
-            maxProfit = max(maxProfit, profit)
-        return maxProfit
+            max_profit = max(max_profit, profit)
+        return max_profit
 
     def main(self):
         prices = [7, 1, 5, 3, 6, 4]
         print(f"Input: prices = {prices}")
-        print(f"Output: {self.maxProfit(prices)}")
+        print(f"Output: {self.max_profit(prices)}")
 
         prices = [7, 6, 4, 3, 1]
         print(f"Input: prices = {prices}")
-        print(f"Output: {self.maxProfit(prices)}")
+        print(f"Output: {self.max_profit(prices)}")
 
 
 if __name__ == "__main__":

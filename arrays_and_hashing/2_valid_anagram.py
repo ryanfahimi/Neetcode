@@ -27,46 +27,46 @@ from collections import Counter
 # Follow up: What if the inputs contain Unicode characters? How would you adapt your solution to such a case?
 
 
-class ValidAnagram:
+class IsAnagram:
     # Time: O(n)
-    def array(self, s: str, t: str) -> bool:
+    def by_array_counting(self, s: str, t: str) -> bool:
         if len(s) != len(t):
             return False
-        counts = [0] * 26  # 26 letters in the alphabet
+        count = [0] * 26  # 26 letters in the alphabet
         for char in s:
             # ord() returns the unicode code point of a character
-            counts[ord(char) - ord("a")] += 1
+            count[ord(char) - ord("a")] += 1
         for char in t:
-            counts[ord(char) - ord("a")] -= 1
+            count[ord(char) - ord("a")] -= 1
             # If the count is negative, then there are more of that character in t
-            if counts[ord(char) - ord("a")] < 0:
+            if count[ord(char) - ord("a")] < 0:
                 return False
         # If all counts are 0, then s and t are anagrams
-        return all(count == 0 for count in counts)
+        return all(count == 0 for count in count)
 
     # Time: O(nlogn)
-    def sorted(self, s: str, t: str) -> bool:
+    def by_sorting(self, s: str, t: str) -> bool:
         # sorted() returns a list
         return sorted(s) == sorted(t)
 
     # Time: O(n)
-    def hashTable(self, s: str, t: str) -> bool:
-        # Counter() returns a dictionary
+    def by_hash_map_counting(self, s: str, t: str) -> bool:
+        # Counter() returns a hash map
         return Counter(s) == Counter(t)
 
     def main(self):
         s, t = "anagram", "nagaram"
         print(f"Input: s = {s}, t = {t}")
-        print(f"Array Output: {self.array(s, t)}")
-        print(f"Sorted Output: {self.sorted(s, t)}")
-        print(f"Hash Table Output: {self.hashTable(s, t)}")
+        print(f"Array Counting Output: {self.by_array_counting(s, t)}")
+        print(f"Sorting Output: {self.by_sorting(s, t)}")
+        print(f"Hash Map Counting Output: {self.by_hash_map_counting(s, t)}")
 
         s, t = "rat", "car"
         print(f"Input: s = {s}, t = {t}")
-        print(f"Array Output: {self.array(s, t)}")
-        print(f"Sorted Output: {self.sorted(s, t)}")
-        print(f"Hash Table Output: {self.hashTable(s, t)}")
+        print(f"Array Counting Output: {self.by_array_counting(s, t)}")
+        print(f"Sorting and Counting Output: {self.by_sorting(s, t)}")
+        print(f"Hash Map Counting Output: {self.by_hash_map_counting(s, t)}")
 
 
 if __name__ == "__main__":
-    ValidAnagram().main()
+    IsAnagram().main()

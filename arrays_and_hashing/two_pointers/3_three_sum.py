@@ -40,7 +40,7 @@ from typing import List
 
 class Solution:
     # Time: O(n^2)
-    def threeSum(self, nums: List[int]) -> List[List[int]]:
+    def three_sum(self, nums: List[int]) -> List[List[int]]:
         nums.sort()
         result = []
         for i in range(len(nums) - 2):
@@ -49,10 +49,10 @@ class Solution:
                 continue
             left, right = i + 1, len(nums) - 1
             while left < right:
-                currSum = nums[i] + nums[left] + nums[right]
-                if currSum < 0:
+                current_sum = nums[i] + nums[left] + nums[right]
+                if current_sum < 0:
                     left += 1
-                elif currSum > 0:
+                elif current_sum > 0:
                     right -= 1
                 else:  # target == 0
                     result.append([nums[i], nums[left], nums[right]])
@@ -70,15 +70,15 @@ class Solution:
     def main(self):
         nums = [-1, 0, 1, 2, -1, -4]
         print(f"Input: nums = {nums}")
-        print(f"Output: {self.threeSum(nums)}")
+        print(f"Output: {self.three_sum(nums)}")
 
         nums = [0, 1, 1]
         print(f"Input: nums = {nums}")
-        print(f"Output: {self.threeSum(nums)}")
+        print(f"Output: {self.three_sum(nums)}")
 
         nums = [0, 0, 0]
         print(f"Input: nums = {nums}")
-        print(f"Output: {self.threeSum(nums)}")
+        print(f"Output: {self.three_sum(nums)}")
 
 
 if __name__ == "__main__":

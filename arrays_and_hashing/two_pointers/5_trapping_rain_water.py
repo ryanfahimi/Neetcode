@@ -29,19 +29,19 @@ class Solution:
     # Time: O(n)
     def trap(self, height: List[int]) -> int:
         left, right = 0, len(height) - 1
-        maxLeft, maxRight = height[left], height[right]
+        max_left, max_right = height[left], height[right]
         total = 0
         while left < right:
             if height[left] < height[right]:
                 left += 1
-                maxLeft = max(maxLeft, height[left])
+                max_left = max(max_left, height[left])
                 # Add the difference between the max height and the current height
-                total += maxLeft - height[left]
+                total += max_left - height[left]
             else:
                 right -= 1
-                maxRight = max(maxRight, height[right])
+                max_right = max(max_right, height[right])
                 # Add the difference between the max height and the current height
-                total += maxRight - height[right]
+                total += max_right - height[right]
         return total
 
     def main(self):

@@ -28,62 +28,62 @@ from typing import List
 
 class LongestConsecutive:
     # Time: O(n)
-    def hashSet(self, nums: List[int]) -> int:
+    def by_set(self, nums: List[int]) -> int:
         # Create a set of the numbers
-        numSet = set(nums)
-        longestStreak = 0
+        num_set = set(nums)
+        longest_streak = 0
         # Iterate through the set
-        for num in numSet:
+        for num in num_set:
             # If the previous number is not in the set
-            if num - 1 not in numSet:
-                currentStreak = 1
+            if num - 1 not in num_set:
+                current_streak = 1
                 # While the next number is in the set
-                while num + currentStreak in numSet:
+                while num + current_streak in num_set:
                     # Increment the current number and the current streak
-                    currentStreak += 1
+                    current_streak += 1
 
-                longestStreak = max(longestStreak, currentStreak)
-        return longestStreak
+                longest_streak = max(longest_streak, current_streak)
+        return longest_streak
 
     # Time: O(n)
-    def hashTable(self, nums: List[int]) -> int:
-        # Initialize a dictionary to store the streak length for each number
-        numDict = {}
+    def by_hash_map(self, nums: List[int]) -> int:
+        # Initialize a hash map to store the streak length for each number
+        streaks = {}
         # Initialize a variable to store the length of the longest streak
-        longestStreak = 0
+        longest_streak = 0
 
         # Iterate over each number in the list
         for num in nums:
-            # If the number is not already in the dictionary
-            if num not in numDict:
+            # If the number is not already in the hash map
+            if num not in streaks:
                 # Get the length of the streak to the left and right of the current number
-                left = numDict.get(num - 1, 0)
-                right = numDict.get(num + 1, 0)
+                left = streaks.get(num - 1, 0)
+                right = streaks.get(num + 1, 0)
 
                 # Calculate the current streak by adding the lengths of the streaks to the left and right of the current number
-                currentStreak = left + right + 1
+                current_streak = left + right + 1
 
                 # Update the longest streak if the current streak is longer
-                longestStreak = max(longestStreak, currentStreak)
+                longest_streak = max(longest_streak, current_streak)
 
                 # Update the streaks of the numbers to the left and right of the current number
-                numDict[num] = currentStreak
-                numDict[num - left] = currentStreak
-                numDict[num + right] = currentStreak
+                streaks[num] = current_streak
+                streaks[num - left] = current_streak
+                streaks[num + right] = current_streak
 
         # Return the length of the longest streak
-        return longestStreak
+        return longest_streak
 
     def main(self):
         nums = [100, 4, 200, 1, 3, 2]
         print(f"Input: nums = {nums}")
-        print(f"Hash Set Output: {self.hashSet(nums)}")
-        print(f"Hash Table Output: {self.hashTable(nums)}")
+        print(f"Set Output: {self.by_set(nums)}")
+        print(f"Hash Map Output: {self.by_hash_map(nums)}")
 
         nums = [0, 3, 7, 2, 5, 8, 4, 6, 0, 1]
         print(f"Input: nums = {nums}")
-        print(f"Hash Set Output: {self.hashSet(nums)}")
-        print(f"Hash Table Output: {self.hashTable(nums)}")
+        print(f"Set Output: {self.by_set(nums)}")
+        print(f"Hash Map Output: {self.by_hash_map(nums)}")
 
 
 if __name__ == "__main__":

@@ -30,41 +30,41 @@
 
 class Solution:
     # Time: O(n)
-    def characterReplacement(self, s: str, k: int) -> int:
-        # Create a dictionary to store the frequency of each character
-        charDict = {}
+    def character_replacement(self, s: str, k: int) -> int:
+        # Create a hash map to store the frequency of each character
+        chars_count = {}
         # Initialize the left and right pointers
         left = 0
         # Initialize the max count and max length
-        maxCount = maxLength = 0
+        max_count = max_length = 0
         # Iterate through the string
         for right in range(len(s)):
-            # Add the character to the dictionary
-            charDict[s[right]] = charDict.get(s[right], 0) + 1
+            # Add the character to the hash map and increment its frequency
+            chars_count[s[right]] = chars_count.get(s[right], 0) + 1
             # Update the max count
-            maxCount = max(maxCount, charDict[s[right]])
+            max_count = max(max_count, chars_count[s[right]])
             # Calculate the current length
-            currentLength = right - left + 1
+            current_length = right - left + 1
             # If the current length minus the max count is greater than k
-            if currentLength - maxCount > k:
+            if current_length - max_count > k:
                 # Decrement the frequency of the character at the left pointer
-                charDict[s[left]] -= 1
+                chars_count[s[left]] -= 1
                 # Increment the left pointer
                 left += 1
             # Update the max length
-            maxLength = max(maxLength, right - left + 1)
-        return maxLength
+            max_length = max(max_length, right - left + 1)
+        return max_length
 
     def main(self):
         s = "ABAB"
         k = 2
         print(f"Input: s = {s}, k = {k}")
-        print(f"Output: {self.characterReplacement(s, k)}")
+        print(f"Output: {self.character_replacement(s, k)}")
 
         s = "AABABBA"
         k = 1
         print(f"Input: s = {s}, k = {k}")
-        print(f"Output: {self.characterReplacement(s, k)}")
+        print(f"Output: {self.character_replacement(s, k)}")
 
 
 if __name__ == "__main__":

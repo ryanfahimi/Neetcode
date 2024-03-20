@@ -34,7 +34,7 @@
 
 class Solution:
     # Time: O(n)
-    def isPalindrome(self, s: str) -> bool:
+    def is_palindrome(self, s: str) -> bool:
         # Initialize two pointers at the start (left) and end (right) of the string
         left, right = 0, len(s) - 1
 
@@ -60,15 +60,15 @@ class Solution:
     def main(self):
         s = "A man, a plan, a canal: Panama"
         print(f"Input: s = {s}")
-        print(f"Output: {self.isPalindrome(s)}")
+        print(f"Output: {self.is_palindrome(s)}")
 
         s = "race a car"
         print(f"Input: s = {s}")
-        print(f"Output: {self.isPalindrome(s)}")
+        print(f"Output: {self.is_palindrome(s)}")
 
         s = " "
         print(f"Input: s = {s}")
-        print(f"Output: {self.isPalindrome(s)}")
+        print(f"Output: {self.is_palindrome(s)}")
 
 
 if __name__ == "__main__":
