@@ -33,7 +33,7 @@ class Solution:
     def character_replacement(self, s: str, k: int) -> int:
         # Create a hash map to store the frequency of each character
         chars_count = {}
-        # Initialize the left and right pointers
+        # Initialize the left pointer
         left = 0
         # Initialize the max count and max length
         max_count = max_length = 0
