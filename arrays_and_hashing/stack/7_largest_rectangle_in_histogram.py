@@ -27,6 +27,7 @@ from typing import List
 
 
 class LargestRectangleArea:
+    # Time: O(n^2)
     def by_brute_force(self, heights: List[int]) -> int:
         n = len(heights)
         stack = []
@@ -62,6 +63,7 @@ class LargestRectangleArea:
 
         return max_area
 
+    # Time: O(n)
     def by_optimal(self, heights: List[int]) -> int:
         max_area = 0
         stack = []
@@ -82,6 +84,7 @@ class LargestRectangleArea:
             max_area = max(max_area, popped_height * (len(heights) - popped_index))
         return max_area
 
+    # Time: O(n)
     def by_one_pass(self, heights: List[int]) -> int:
         n = len(heights)
         stack = []
