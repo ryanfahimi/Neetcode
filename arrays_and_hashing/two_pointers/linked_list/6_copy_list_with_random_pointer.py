@@ -59,6 +59,7 @@ class Node:
 
 class CopyRandomList:
     # Time: O(n)
+    # Space: O(n)
     def by_recursion(self, head: Optional[Node]) -> Optional[Node]:
         def copy_node(node: Optional[Node], visited: dict) -> Optional[Node]:
             # Base case: if the current node is None, return None
@@ -85,6 +86,7 @@ class CopyRandomList:
         return copy_node(head, {None: None})
 
     # Time: O(n)
+    # Space: O(n)
     def by_two_passes(self, head: Optional[Node]) -> Optional[Node]:
         if not head:
             return None
@@ -110,6 +112,7 @@ class CopyRandomList:
         return visited[head]
 
     # Time: O(n)
+    # Space: O(n)
     def by_one_pass(self, head: Optional[Node]) -> Optional[Node]:
         # Create a defaultdict to hold the mapping from original nodes to their copies
         visited = collections.defaultdict(lambda: Node(0))
@@ -131,6 +134,7 @@ class CopyRandomList:
         return visited[head]
 
     # Time: O(n)
+    # Space: O(1)
     def by_optimized(self, head: Optional[Node]) -> Optional[Node]:
         if not head:
             return None

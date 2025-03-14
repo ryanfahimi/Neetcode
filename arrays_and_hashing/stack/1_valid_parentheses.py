@@ -31,6 +31,7 @@
 # s consists of parentheses only '()[]{}'.
 class IsValid:
     # Time: O(n)
+    # Space: O(n)
     def by_brute_force(self, s: str) -> bool:
         # Initialize an empty stack
         stack = []
@@ -55,6 +56,7 @@ class IsValid:
         return not stack
 
     # Time: O(n)
+    # Space: O(n)
     def by_hash_map(self, s: str) -> bool:
         # Initialize an empty stack
         stack = []

@@ -23,6 +23,7 @@ from typing import List
 
 class Solution:
     # Time: O(4^n / sqrt(n))
+    # Space: O(n)
     def generateParenthesis(self, n: int) -> List[str]:
         # Initialize an empty stack to store the parentheses
         stack = []

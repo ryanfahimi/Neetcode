@@ -31,6 +31,7 @@ from typing import List
 
 class Search:
     # Time: O(logn)
+    # Space: O(logn)
     def by_recursive(self, nums: List[int], target: int) -> int:
         def binary_search(left, right):
             # Base case: if the left index exceeds the right index, the target is not found
@@ -54,6 +55,7 @@ class Search:
         return binary_search(0, len(nums) - 1)
 
     # Time: O(logn)
+    # Space: O(1)
     def by_iterative(self, nums: List[int], target: int) -> int:
         left = 0
         right = len(nums) - 1
@@ -77,6 +79,7 @@ class Search:
         return -1
 
     # Time: O(logn)
+    # Space: O(1)
     def by_upper_bound(self, nums: List[int], target: int) -> int:
         left = 0
         right = len(nums)
@@ -97,6 +100,7 @@ class Search:
         return left - 1 if left > 0 and nums[left - 1] == target else -1
 
     # Time: O(logn)
+    # Space: O(1)
     def by_lower_bound(self, nums: List[int], target: int) -> int:
         left = 0
         right = len(nums)
@@ -117,6 +121,7 @@ class Search:
         return left if left < len(nums) and nums[left] == target else -1
 
     # Time: O(logn)
+    # Space: O(1)
     def by_built_in_function(self, nums: List[int], target: int) -> int:
         # Use bisect_left to find the insertion point for target in nums
         index = bisect.bisect_left(nums, target)

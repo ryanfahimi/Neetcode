@@ -28,7 +28,8 @@ from collections import Counter
 
 
 class IsAnagram:
-    # Time: O(n)
+    # Time: O(n + m)
+    # Space: O(1)
     def by_array_counting(self, s: str, t: str) -> bool:
         if len(s) != len(t):
             return False
@@ -44,12 +45,14 @@ class IsAnagram:
         # If all counts are 0, then s and t are anagrams
         return all(count == 0 for count in count)
 
-    # Time: O(nlogn)
+    # Time: O(nlogn + mlogm)
+    # Space: O(1)
     def by_sorting(self, s: str, t: str) -> bool:
         # sorted() returns a list
         return sorted(s) == sorted(t)
 
-    # Time: O(n)
+    # Time: O(n + m)
+    # Space: O(1)
     def by_hash_map_counting(self, s: str, t: str) -> bool:
         # Counter() returns a hash map
         return Counter(s) == Counter(t)

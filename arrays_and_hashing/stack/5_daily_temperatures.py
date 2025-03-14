@@ -28,6 +28,7 @@ from typing import List
 
 class Solution:
     # Time: O(n)
+    # Space: O(n)
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
         # Initialize the stack to store the indices of the temperatures
         stack = []

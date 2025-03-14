@@ -35,6 +35,7 @@ from typing import Optional
 
 class ReorderList:
     # Time: O(n)
+    # Space: O(n)
     def by_brute_force(self, head: Optional[ListNode]) -> None:
         # Initialize an empty list to store the nodes
         nodes = []
@@ -70,6 +71,7 @@ class ReorderList:
         nodes[left].next = None
 
     # Time: O(n)
+    # Space: O(n)
     def by_recursive(self, head: Optional[ListNode]) -> None:
         def reorder(
             root: Optional[ListNode], current: Optional[ListNode]
@@ -103,6 +105,7 @@ class ReorderList:
             head = reorder(head, head.next)
 
     # Time: O(n)
+    # Space: O(1)
     def by_reverse_and_merge(self, head: Optional[ListNode]) -> None:
         # Initialize two pointers, slow and fast
         slow, fast = head, head

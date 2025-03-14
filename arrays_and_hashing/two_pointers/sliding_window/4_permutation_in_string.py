@@ -26,6 +26,7 @@
 
 class CheckInclusion:
     # Time: O(n)
+    # Space: O(1)
     def by_arrays(self, s1: str, s2: str) -> bool:
         # If s1 is longer than s2, return False as s1 cannot be a permutation of s2
         if len(s1) > len(s2):
@@ -62,6 +63,7 @@ class CheckInclusion:
         return False
 
     # Time: O(n)
+    # Space: O(1)
     def by_matches(self, s1: str, s2: str) -> bool:
         # If s1 is longer than s2, return False as s1 cannot be a permutation of s2
         if len(s1) > len(s2):

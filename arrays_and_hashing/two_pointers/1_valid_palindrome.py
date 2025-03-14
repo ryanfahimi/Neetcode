@@ -34,6 +34,7 @@
 
 class Solution:
     # Time: O(n)
+    # Space: O(1)
     def is_palindrome(self, s: str) -> bool:
         # Initialize two pointers at the start (left) and end (right) of the string
         left, right = 0, len(s) - 1

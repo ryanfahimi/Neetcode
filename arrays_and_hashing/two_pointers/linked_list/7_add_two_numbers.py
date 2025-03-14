@@ -32,6 +32,8 @@ from typing import Optional
 # 0 <= Node.val <= 9
 # It is guaranteed that the list represents a number that does not have leading zeros.
 class AddTwoNumbers:
+    # Time: O(m + n)
+    # Space: O(m + n)
     def by_recursive(
         self, l1: Optional[ListNode], l2: Optional[ListNode]
     ) -> Optional[ListNode]:
@@ -55,6 +57,8 @@ class AddTwoNumbers:
         # Call the helper function with the input lists and carry value of 0
         return add(l1, l2, 0)
 
+    # Time: O(m + n)
+    # Space: O(1)
     def by_iterative(
         self, l1: Optional[ListNode], l2: Optional[ListNode]
     ) -> Optional[ListNode]:

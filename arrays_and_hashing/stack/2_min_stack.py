@@ -42,6 +42,7 @@
 
 class MinStack:
     # Time: O(1)
+    # Space: O(n)
     def __init__(self):
         # Main stack to hold all elements
         self.stack = []
@@ -49,6 +50,7 @@ class MinStack:
         self.min_stack = []
 
     # Time: O(1)
+    # Space: O(n)
     def push(self, val: int) -> None:
         # Push the element val onto the main stack
         self.stack.append(val)
@@ -60,6 +62,7 @@ class MinStack:
         self.min_stack.append(val)
 
     # Time: O(1)
+    # Space: O(n)
     def pop(self) -> None:
         # Remove the top element from the main stack
         self.stack.pop()
@@ -72,6 +75,7 @@ class MinStack:
         return self.stack[-1]
 
     # Time: O(1)
+    # Space: O(n)
     def get_min(self) -> int:
         # Retrieves the minimum element in the stack.
         # Return the top element from min_stack

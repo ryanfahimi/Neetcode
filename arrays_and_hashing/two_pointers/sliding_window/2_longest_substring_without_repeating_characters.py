@@ -32,6 +32,7 @@
 
 class LengthOfLongestSubstring:
     # Time: O(n)
+    # Space: O(m)
     def by_hash_map(self, s: str) -> int:
         # Create a hash map to store the characters and their indices
         characters = {}
@@ -49,6 +50,7 @@ class LengthOfLongestSubstring:
         return max_length
 
     # Time: O(n)
+    # Space: O(m)
     def by_hash_set(self, s: str) -> int:
         # Create a set to store the characters
         char_set = set()

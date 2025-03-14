@@ -36,6 +36,7 @@ from typing import List
 # -104 <= target <= 104
 class Search:
     # Time: O(logn)
+    # Space: O(1)
     def by_two_passes(self, nums: List[int], target: int) -> int:
         # Initialize pointers
         left, right = 0, len(nums) - 1
@@ -73,6 +74,7 @@ class Search:
         return -1
 
     # Time: O(logn)
+    # Space: O(1)
     def by_one_pass(self, nums: List[int], target: int) -> int:
         # Initialize pointers
         left, right = 0, len(nums) - 1

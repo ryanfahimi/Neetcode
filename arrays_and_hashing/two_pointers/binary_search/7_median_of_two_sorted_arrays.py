@@ -30,7 +30,8 @@ from typing import List
 # 1 <= m + n <= 2000
 # -106 <= nums1[i], nums2[i] <= 106
 class FindMedianSortedArrays:
-    # Time: O(m+n)
+    # Time: O(log(m + n))
+    # Space: O(log(m + n))
     def by_recursive(self, nums1: List[int], nums2: List[int]) -> float:
         # Helper function to find the k-th element in the merged array
         def find_kth_element(nums1, nums2, k):
@@ -67,6 +68,7 @@ class FindMedianSortedArrays:
             ) / 2.0
 
     # Time: O(log(min(m,n)))
+    # Space: O(1)
     def by_optimal(self, nums1: List[int], nums2: List[int]) -> float:
         # Ensure nums1 is the smaller array to minimize the binary search range
         if len(nums1) > len(nums2):

@@ -34,6 +34,7 @@ from typing import Optional
 # Follow up: Could you do this in one pass?
 class RemoveNthFromEnd:
     # Time: O(n)
+    # Space: O(n)
     def by_brute_force(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         # Initialize an empty list to store the nodes
         nodes = []
@@ -59,6 +60,7 @@ class RemoveNthFromEnd:
         return head
 
     # Time: O(n)
+    # Space: O(n)
     def by_recursive(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         # Helper function to remove the nth node from the end of the list recursively
         def remove(node: Optional[ListNode]) -> int:
@@ -85,6 +87,7 @@ class RemoveNthFromEnd:
         return dummy.next
 
     # Time: O(n)
+    # Space: O(1)
     def by_two_passes(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         # Initialize a dummy node to simplify the code
         dummy = ListNode(next=head)
@@ -113,6 +116,7 @@ class RemoveNthFromEnd:
         return dummy.next
 
     # Time: O(n)
+    # Space: O(1)
     def by_one_pass(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         # Initialize a dummy node to simplify the code
         dummy = ListNode(next=head)

@@ -35,6 +35,7 @@ from ListNode import ListNode
 
 class ReverseList:
     # Time: O(n)
+    # Space: O(1)
     def by_iterative(self, head: Optional[ListNode]) -> Optional[ListNode]:
         # Initialize previous node to None
         prev = None
@@ -54,6 +55,7 @@ class ReverseList:
         return prev
 
     # Time: O(n)
+    # Space: O(n)
     def by_recursive(self, head: Optional[ListNode]) -> Optional[ListNode]:
         # Helper function to reverse the list recursively
         def reverse(current: Optional[ListNode], prev: Optional[ListNode] = None):

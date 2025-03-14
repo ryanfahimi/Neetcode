@@ -60,6 +60,7 @@ from typing import List
 
 class Solution:
     # Time: O(nlogn)
+    # Space: O(n)
     def carFleet(self, target: int, positions: List[int], speeds: List[int]) -> int:
         # Combine positions and speeds into a list of tuples and sort them in descending order by position
         cars = sorted(zip(positions, speeds), reverse=True)

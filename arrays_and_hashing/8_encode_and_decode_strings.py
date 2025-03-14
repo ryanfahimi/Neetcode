@@ -29,6 +29,7 @@ from typing import List
 class Solution:
 
     # Time: O(n)
+    # Space: O(m + n)
     def encode(self, strs: List[str]) -> str:
         encoded_str = ""
         for s in strs:
@@ -38,6 +39,7 @@ class Solution:
         return encoded_str
 
     # Time: O(n)
+    # Space: O(m + n)
     def decode(self, s: str) -> List[str]:
         decoded_strs = []
         i = 0

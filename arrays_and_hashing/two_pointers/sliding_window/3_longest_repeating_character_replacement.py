@@ -30,6 +30,7 @@
 
 class Solution:
     # Time: O(n)
+    # Space: O(m)
     def character_replacement(self, s: str, k: int) -> int:
         # Create a hash map to store the frequency of each character
         chars_count = {}

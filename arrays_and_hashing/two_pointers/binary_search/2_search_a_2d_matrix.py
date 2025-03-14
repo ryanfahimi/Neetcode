@@ -32,7 +32,8 @@ from typing import List
 # 1 <= m, n <= 100
 # -104 <= matrix[i][j], target <= 104
 class SearchMatrix:
-    # Time: O(log(m) + log(n))
+    # Time: O(log(m * n))
+    # Space: O(1)
     def by_two_passes(self, matrix: List[List[int]], target: int) -> bool:
         m, n = len(matrix), len(matrix[0])
 
@@ -71,6 +72,7 @@ class SearchMatrix:
         return False
 
     # Time: O(log(m * n))
+    # Space: O(1)
     def by_one_pass(self, matrix: List[List[int]], target: int) -> bool:
         m, n = len(matrix), len(matrix[0])
         left, right = 0, m * n - 1

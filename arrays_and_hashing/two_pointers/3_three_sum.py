@@ -40,6 +40,7 @@ from typing import List
 
 class Solution:
     # Time: O(n^2)
+    # Space: O(1)
     def three_sum(self, nums: List[int]) -> List[List[int]]:
         nums.sort()
         result = []

@@ -33,6 +33,7 @@ from typing import List
 
 class ProductExceptSelf:
     # Time: O(n)
+    # Space: O(n)
     def by_arrays(self, nums: List[int]) -> List[int]:
         length = len(nums)
         # Create a three lists of size n
@@ -54,6 +55,7 @@ class ProductExceptSelf:
         return output
 
     # Time: O(n)
+    # Space: O(1)
     def by_array(self, nums: List[int]) -> List[int]:
         length = len(nums)
         # Create a list of size n

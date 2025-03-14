@@ -36,7 +36,8 @@ from collections import deque
 
 
 class MaxSlidingWindow:
-    # Time: O(k(n-k))
+    # Time: O(n)
+    # Space: O(n)
     def by_array(self, nums: List[int], k: int) -> List[int]:
         # Initialize the left and right pointers
         left, right = 0, k - 1
@@ -71,6 +72,8 @@ class MaxSlidingWindow:
 
         return result
 
+    # Time: O(n)
+    # Space: O(n)
     def by_deque(self, nums: List[int], k: int) -> List[int]:
         # Initialize the deque
         dq = deque()

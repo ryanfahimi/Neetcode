@@ -42,6 +42,7 @@ from typing import List
 
 class Solution:
     # Time: O(n)
+    # Space: O(1)
     def two_sum(self, numbers: List[int], target: int) -> List[int]:
         # Initialize two pointers at the start (left) and end (right) of the list
         left, right = 0, len(numbers) - 1

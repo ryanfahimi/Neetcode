@@ -28,6 +28,7 @@ from typing import List
 
 class LongestConsecutive:
     # Time: O(n)
+    # Space: O(n)
     def by_set(self, nums: List[int]) -> int:
         # Create a set of the numbers
         num_set = set(nums)
@@ -46,6 +47,7 @@ class LongestConsecutive:
         return longest_streak
 
     # Time: O(n)
+    # Space: O(n)
     def by_hash_map(self, nums: List[int]) -> int:
         # Initialize a hash map to store the streak length for each number
         streaks = {}

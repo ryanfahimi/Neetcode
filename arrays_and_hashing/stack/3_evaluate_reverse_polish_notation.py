@@ -49,6 +49,7 @@ from typing import List
 
 class Solution:
     # Time: O(n)
+    # Space: O(n)
     def evalRPN(self, tokens: List[str]) -> int:
         # Initialize an empty stack to store operands
         stack = []

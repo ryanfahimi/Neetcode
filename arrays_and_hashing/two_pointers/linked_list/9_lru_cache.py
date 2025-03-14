@@ -55,6 +55,7 @@ class Node:
 class LRUCache:
 
     # Time: O(1)
+    # Space: O(n)
     def __init__(self, capacity: int):
         self.capacity = capacity  # Maximum capacity of the cache
         self.cache = {}  # Dictionary to store key-node pairs
@@ -64,6 +65,7 @@ class LRUCache:
         self.tail.prev = self.head
 
     # Time: O(1)
+    # Space: O(n)
     def insert(self, node):
         # Insert the node right after the head
         node.prev = self.head
@@ -72,6 +74,7 @@ class LRUCache:
         self.head.next = node
 
     # Time: O(1)
+    # Space: O(n)
     def remove(self, node):
         # Remove the node from the doubly linked list
         prev = node.prev
@@ -80,6 +83,7 @@ class LRUCache:
         next.prev = prev
 
     # Time: O(1)
+    # Space: O(n)
     def get(self, key: int) -> int:
         if key in self.cache:
             node = self.cache[key]
@@ -89,6 +93,7 @@ class LRUCache:
         return -1  # Return -1 if the key is not found
 
     # Time: O(1)
+    # Space: O(n)
     def put(self, key: int, value: int) -> None:
         if key in self.cache:
             self.remove(self.cache[key])  # Remove the old node

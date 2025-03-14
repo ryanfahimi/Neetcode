@@ -39,6 +39,7 @@ from typing import List
 
 class TwoSum:
     # Time: O(n^2)
+    # Space: O(1)
     def by_brute_force(self, nums: List[int], target: int) -> List[int]:
         for i in range(len(nums)):
             for j in range(i + 1, len(nums)):
@@ -48,6 +49,7 @@ class TwoSum:
         return []
 
     # Time: O(n)
+    # Space: O(n)
     def by_hash_map(self, nums: List[int], target: int) -> List[int]:
         sum_map = {}
         for i, n in enumerate(nums):

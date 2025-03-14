@@ -36,6 +36,7 @@ from ListNode import ListNode
 
 class MergeTwoLists:
     # Time: O(n + m)
+    # Space: O(1)
     def by_iterative(
         self, list1: Optional[ListNode], list2: Optional[ListNode]
     ) -> Optional[ListNode]:
@@ -73,6 +74,7 @@ class MergeTwoLists:
         return dummy.next
 
     # Time: O(n + m)
+    # Space: O(n + m)
     def by_recursive(
         self, list1: Optional[ListNode], list2: Optional[ListNode]
     ) -> Optional[ListNode]:

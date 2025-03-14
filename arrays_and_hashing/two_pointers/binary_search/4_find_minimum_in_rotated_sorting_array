@@ -43,6 +43,7 @@ from typing import List
 
 class FindMin:
     # Time: O(log n)
+    # Space: O(1)
     def by_iterative(self, nums: List[int]) -> int:
         left, right = 0, len(nums) - 1
         minimum = nums[0]
@@ -66,6 +67,7 @@ class FindMin:
         return minimum
 
     # Time: O(log n)
+    # Space: O(1)
     def by_lower_bound(self, nums: List[int]) -> int:
         left, right = 0, len(nums) - 1
 

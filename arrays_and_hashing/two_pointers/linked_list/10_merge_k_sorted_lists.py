@@ -42,6 +42,8 @@ import heapq
 # lists[i] is sorted in ascending order.
 # The sum of lists[i].length will not exceed 104.
 class MergeKLists:
+    # Time: O(nlogn)
+    # Space: O(n)
     def by_brute_force(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
         # Initialize an empty list to store the nodes
         nodes = []
@@ -73,6 +75,8 @@ class MergeKLists:
 
         return dummy.next
 
+    # Time: O(n*k)
+    # Space: O(1)
     def by_iterative(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
         # Base case: if the list of lists is empty, return None
         if not lists or len(lists) == 0:
@@ -106,6 +110,8 @@ class MergeKLists:
         # Return the head of the merged list
         return dummy.next
 
+    # Time: O(n*k)
+    # Space: O(1)
     def by_one_by_one(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
         # Base case: if the list of lists is empty, return None
         if not lists or len(lists) == 0:
@@ -117,6 +123,8 @@ class MergeKLists:
 
         return lists[0]
 
+    # Time: O(nlogk)
+    # Space: O(k)
     def by_heap(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
         # Initialize a dummy node to simplify the code
         dummy = ListNode()
@@ -148,6 +156,8 @@ class MergeKLists:
         # Return the head of the merged list
         return dummy.next
 
+    # Time: O(nlogk)
+    # Space: O(k)
     def by_iterative_divide_and_conquer(
         self, lists: List[Optional[ListNode]]
     ) -> Optional[ListNode]:
@@ -174,6 +184,8 @@ class MergeKLists:
 
         return lists[0]
 
+    # Time: O(nlogk)
+    # Space: O(logk)
     def by_recursive_divide_and_conquer(
         self, lists: List[Optional[ListNode]]
     ) -> Optional[ListNode]:

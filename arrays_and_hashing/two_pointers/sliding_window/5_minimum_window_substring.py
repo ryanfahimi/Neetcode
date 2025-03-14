@@ -40,6 +40,7 @@
 
 class MinWindow:
     # Time: O(n^2)
+    # Space: O(m)
     def by_brute_force(self, s: str, t: str) -> str:
         # Create a hash map to store the frequency of each character
         t_count, window_count = {}, {}
@@ -71,6 +72,7 @@ class MinWindow:
         return result
 
     # Time: O(n)
+    # Space: O(m)
     def by_have_and_need(self, s: str, t: str) -> str:
         # Create a hash map to store the frequency of each character
         t_count, window_count = {}, {}

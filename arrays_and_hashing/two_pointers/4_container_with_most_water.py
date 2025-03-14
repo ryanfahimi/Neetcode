@@ -33,6 +33,7 @@ from typing import List
 
 class Solution:
     # Time: O(n)
+    # Space: O(1)
     def max_area(self, height: List[int]) -> int:
         left, right = 0, len(height) - 1
         max_area = 0

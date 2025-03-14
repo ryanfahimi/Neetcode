@@ -42,12 +42,14 @@ class TimeMap:
         self.timestamps = {}
 
     # Time: O(1)
+    # Space: O(m * n)
     def set(self, key: str, value: str, timestamp: int) -> None:
         if key not in self.timestamps:
             self.timestamps[key] = []
         self.timestamps[key].append((timestamp, value))
 
     # Time: O(logn)
+    # Space: O(m * n)
     def get(self, key: str, timestamp: int) -> str:
         if key not in self.timestamps:
             return ""

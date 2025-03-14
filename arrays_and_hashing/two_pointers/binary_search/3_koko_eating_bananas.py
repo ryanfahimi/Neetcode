@@ -35,7 +35,8 @@ from typing import List
 
 
 class MinEatingSpeed:
-    # Time: O(nlogn)
+    # Time: O(nlogm)
+    # Space: O(1)
     def by_lower_bound(self, piles: List[int], h: int) -> int:
         # Initialize the binary search bounds
         left, right = 1, max(piles)
@@ -54,7 +55,8 @@ class MinEatingSpeed:
 
         return left
 
-    # Time: O(nlogn)
+    # Time: O(nlogm)
+    # Space: O(logm)
     def by_recursive(self, piles: List[int], h: int) -> int:
         def binary_search(left, right):
             # Base case: if the search bounds converge, return the left bound

@@ -42,6 +42,7 @@ from ListNode import ListNode
 # Follow up: Can you solve it using O(1) (i.e. constant) memory?
 class Solution:
     # Time: O(n)
+    # Space: O(1)
     def hasCycle(self, head: Optional[ListNode]) -> bool:
         # Initialize two pointers, slow and fast, both starting at the head of the linked list
         slow = head

@@ -33,6 +33,7 @@ from typing import List
 
 class GroupAnagrams:
     # Time: O(nklogk)
+    # Space: O(nk)
     def by_sorting(self, strs: List[str]) -> List[List[str]]:
         anagrams = {}
         for s in strs:
@@ -43,6 +44,7 @@ class GroupAnagrams:
         return list(anagrams.values())
 
     # Time: O(nk)
+    # Space: O(n)
     def by_counting(self, strs: List[str]) -> List[List[str]]:
         anagrams = {}
         for s in strs:

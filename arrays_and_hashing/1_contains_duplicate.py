@@ -30,6 +30,7 @@ from typing import List
 
 class ContainsDuplicate:
     # Time: O(nlogn)
+    # Space: O(1)
     def by_sorting(self, nums: List[int]) -> bool:
         # Sort the numbers
         nums.sort()
@@ -40,6 +41,7 @@ class ContainsDuplicate:
         return False
 
     # Time: O(n)
+    # Space: O(n)
     def by_hash_set(self, nums: List[int]) -> bool:
         # Create a set to store the numbers seen so far
         seen = set()

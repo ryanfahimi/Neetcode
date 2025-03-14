@@ -53,7 +53,8 @@ from typing import List
 
 
 class IsValidSudoku:
-    # Time: O(1)
+    # Time: O(n^2)
+    # Space: O(n)
     def by_boolean_arrays(self, board: List[List[str]]) -> bool:
         # Create a list of 9 lists of 9 False values
         rows = [[False] * 9 for _ in range(9)]
@@ -74,7 +75,8 @@ class IsValidSudoku:
                     boxes[box_index][index] = True
         return True
 
-    # Time: O(1)
+    # Time: O(n^2)
+    # Space: O(n^2)
     def by_sets(self, board: List[List[str]]) -> bool:
         # Create a set for each row, column, and box
         rows = [set() for _ in range(9)]

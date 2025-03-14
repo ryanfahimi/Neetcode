@@ -39,6 +39,7 @@ from typing import List
 # Can you solve the problem in linear runtime complexity?
 class Solution:
     # Time: O(n)
+    # Space: O(1)
     def findDuplicate(self, nums: List[int]) -> int:
         # Initialize the slow and fast pointers
         slow = nums[0]

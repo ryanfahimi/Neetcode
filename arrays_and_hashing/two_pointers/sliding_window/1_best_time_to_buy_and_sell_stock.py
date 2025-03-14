@@ -32,6 +32,7 @@ from typing import List
 
 class Solution:
     # Time: O(n)
+    # Space: O(1)
     def max_profit(self, prices: List[int]) -> int:
         min_price = prices[0]
         max_profit = 0
