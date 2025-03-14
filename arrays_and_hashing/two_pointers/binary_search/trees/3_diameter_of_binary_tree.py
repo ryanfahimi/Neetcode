@@ -30,6 +30,8 @@ from TreeNode import TreeNode
 # The number of nodes in the tree is in the range [1, 104].
 # -100 <= Node.val <= 100
 class DiameterOfBinaryTree:
+    # Time: O(n^2)
+    # Space: O(n)
     def brute_force(self, root: Optional[TreeNode]) -> int:
         def max_height(node):
             if not node:
@@ -84,30 +86,43 @@ class DiameterOfBinaryTree:
 
         return diameter
 
+    # Time: O(n)
+    # Space: O(n)
     def iterative_dfs(self, root: Optional[TreeNode]) -> int:
+        # Base case: if the root is None, the diameter is 0
         if not root:
             return 0
+
+        # Initialize the stack with the root node
         stack = [root]
+        # Dictionary to store the heights and diameters of the nodes
         heights = {None: (0, 0)}
 
+        # Iterate while there are nodes in the stack
         while stack:
             node = stack[-1]
 
+            # If the left child exists and its height is not calculated, push it to the stack
             if node.left and node.left not in heights:
                 stack.append(node.left)
+            # If the right child exists and its height is not calculated, push it to the stack
             elif node.right and node.right not in heights:
                 stack.append(node.right)
             else:
+                # Pop the node from the stack
                 node = stack.pop()
 
+                # Get the heights and diameters of the left and right children
                 left_height, left_diameter = heights[node.left]
                 right_height, right_diameter = heights[node.right]
 
+                # Calculate the height and diameter of the current node
                 heights[node] = (
                     1 + max(left_height, right_height),
                     max(left_height + right_height, left_diameter, right_diameter),
                 )
 
+        # Return the diameter of the root node
         return heights[root][1]
 
     def main(self):
