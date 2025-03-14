@@ -61,17 +61,17 @@ class RemoveNthFromEnd:
     # Time: O(n)
     def by_recursive(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         # Helper function to remove the nth node from the end of the list recursively
-        def remove(current: Optional[ListNode]) -> int:
+        def remove(node: Optional[ListNode]) -> int:
             # Base case: if the current node is None, return 0
-            if not current:
+            if not node:
                 return 0
 
             # Recursively remove the nth node from the end of the list
-            index = remove(current.next)
+            index = remove(node.next)
 
             # If the index is equal to n, remove the current node
             if index == n:
-                current.next = current.next.next
+                node.next = node.next.next
 
             # Return the index of the current node
             return index + 1

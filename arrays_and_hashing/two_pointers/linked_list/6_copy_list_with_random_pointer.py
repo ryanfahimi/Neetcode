@@ -58,31 +58,33 @@ class Node:
 
 
 class CopyRandomList:
+    # Time: O(n)
     def by_recursion(self, head: Optional[Node]) -> Optional[Node]:
-        def copy_node(current: Optional[Node], visited: dict) -> Optional[Node]:
+        def copy_node(node: Optional[Node], visited: dict) -> Optional[Node]:
             # Base case: if the current node is None, return None
-            if not current:
+            if not node:
                 return None
 
             # If the current node is already copied, return the copied node
-            if current in visited:
-                return visited[current]
+            if node in visited:
+                return visited[node]
 
             # Create a new node with the value of the current node
-            copy = Node(current.val)
+            copy = Node(node.val)
             # Store the copied node in the visited dictionary
-            visited[current] = copy
+            visited[node] = copy
 
             # Recursively copy the next node
-            copy.next = copy_node(current.next, visited)
+            copy.next = copy_node(node.next, visited)
             # Set the random pointer of the copied node
-            copy.random = visited[current.random]
+            copy.random = visited[node.random]
 
             return copy
 
         # Start the recursion with the head node and an empty visited dictionary
         return copy_node(head, {None: None})
 
+    # Time: O(n)
     def by_two_passes(self, head: Optional[Node]) -> Optional[Node]:
         if not head:
             return None
@@ -107,6 +109,7 @@ class CopyRandomList:
 
         return visited[head]
 
+    # Time: O(n)
     def by_one_pass(self, head: Optional[Node]) -> Optional[Node]:
         # Create a defaultdict to hold the mapping from original nodes to their copies
         visited = collections.defaultdict(lambda: Node(0))
@@ -127,6 +130,7 @@ class CopyRandomList:
         # Return the head of the copied linked list
         return visited[head]
 
+    # Time: O(n)
     def by_optimized(self, head: Optional[Node]) -> Optional[Node]:
         if not head:
             return None

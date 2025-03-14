@@ -56,7 +56,7 @@ class ReverseList:
     # Time: O(n)
     def by_recursive(self, head: Optional[ListNode]) -> Optional[ListNode]:
         # Helper function to reverse the list recursively
-        def reverse_list(current: Optional[ListNode], prev: Optional[ListNode] = None):
+        def reverse(current: Optional[ListNode], prev: Optional[ListNode] = None):
             # Base case: if the current node is None, return the previous node
             if not current:
                 return prev
@@ -65,10 +65,10 @@ class ReverseList:
             # Reverse the current node's pointer
             current.next = prev
             # Recur for the next node
-            return reverse_list(next, current)
+            return reverse(next, current)
 
         # Call the helper function with the head of the list
-        return reverse_list(head)
+        return reverse(head)
 
     def main(self):
         head = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))

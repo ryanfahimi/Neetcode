@@ -31,65 +31,69 @@ from typing import Optional
 # The number of nodes in each linked list is in the range [1, 100].
 # 0 <= Node.val <= 9
 # It is guaranteed that the list represents a number that does not have leading zeros.
-class Solution:
-    def addTwoNumbers(
+class AddTwoNumbers:
+    def by_recursive(
         self, l1: Optional[ListNode], l2: Optional[ListNode]
     ) -> Optional[ListNode]:
+        # Helper function to add two numbers recursively
+        def add(
+            l1: Optional[ListNode], l2: Optional[ListNode], carry: int
+        ) -> Optional[ListNode]:
+            # Base case: if both lists are empty and there is no carry, return None
+            if not l1 and not l2 and not carry:
+                return None
+            # Calculate the sum of the current nodes and the carry
+            value = (l1.val if l1 else 0) + (l2.val if l2 else 0) + carry
+            # Calculate the carry for the next iteration
+            carry = value // 10
+            # Create a new node with the value of the sum
+            node = ListNode(value % 10)
+            # Set the next node to the result of the next iteration
+            node.next = add(l1.next if l1 else None, l2.next if l2 else None, carry)
+            return node
+
+        # Call the helper function with the input lists and carry value of 0
+        return add(l1, l2, 0)
+
+    def by_iterative(
+        self, l1: Optional[ListNode], l2: Optional[ListNode]
+    ) -> Optional[ListNode]:
+        # Initialize a dummy node to simplify the code
         dummy = ListNode()
+        # Initialize the current node to the dummy node
         current = dummy
-        carry = False
+        # Initialize the carry value to 0
+        carry = 0
 
-        while l1 and l2:
-            sum = 0
-            if carry:
-                sum += 1
-            carry = False
-            sum += l1.val + l2.val
-            if sum >= 10:
-                sum -= 10
-                carry = True
-            current.next = ListNode(sum)
+        # Iterate through both lists
+        while l1 or l2 or carry:
+            # Calculate the sum of the current nodes and the carry
+            value = (l1.val if l1 else 0) + (l2.val if l2 else 0) + carry
+            # Calculate the carry for the next iteration
+            carry = value // 10
+            # Create a new node with the value of the sum
+            current.next = ListNode(value % 10)
+            # Move to the next node in the merged list
             current = current.next
+            # Move to the next node in the input lists
+            l1 = l1.next if l1 else None
+            l2 = l2.next if l2 else None
 
-            l1 = l1.next
-            l2 = l2.next
-
-        while l1:
-            current.next = l1
-            if carry:
-                l1.val += 1
-            carry = False
-            if l1.val >= 10:
-                l1.val -= 10
-                carry = True
-            l1 = l1.next
-            current = current.next
-        while l2:
-            current.next = l2
-            if carry:
-                l2.val += 1
-            carry = False
-            if l2.val >= 10:
-                l2.val -= 10
-                carry = True
-            l2 = l2.next
-            current = current
-
-        if carry:
-            current.next = ListNode(1)
-
+        # Return the next node of the dummy node
         return dummy.next
 
     def main(self):
         l1 = ListNode(2, ListNode(4, ListNode(3)))
         l2 = ListNode(5, ListNode(6, ListNode(4)))
         print(f"Input: l1 = {l1}, l2 = {l2}")
-        print(f"Output: {self.addTwoNumbers(l1, l2)}")
+        print(f"Output (Recursive): {self.by_recursive(l1, l2)}")
+        print(f"Output (Iterative): {self.by_iterative(l1, l2)}")
 
         l1 = ListNode(0)
         l2 = ListNode(0)
         print(f"Input: l1 = {l1}, l2 = {l2}")
-        print(f"Output: {self.addTwoNumbers(l1, l2)}")
+        print(f"Output (Recursive): {self.by_recursive(l1, l2)}")
+        print(f"Output (Iterative): {self.by_iterative(l1, l2)}")
 
         l1 = ListNode(
             9,
@@ -99,8 +103,9 @@ class Solution:
         )
         l2 = ListNode(9, ListNode(9, ListNode(9, ListNode(9))))
         print(f"Input: l1 = {l1}, l2 = {l2}")
-        print(f"Output: {self.addTwoNumbers(l1, l2)}")
+        print(f"Output (Recursive): {self.by_recursive(l1, l2)}")
+        print(f"Output (Iterative): {self.by_iterative(l1, l2)}")
 
 
 if __name__ == "__main__":
-    Solution().main()
+    AddTwoNumbers().main()
