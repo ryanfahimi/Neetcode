@@ -40,7 +40,7 @@ from typing import List
 class Solution:
     # Time: O(n)
     # Space: O(1)
-    def findDuplicate(self, nums: List[int]) -> int:
+    def find_duplicate(self, nums: List[int]) -> int:
         # Initialize the slow and fast pointers
         slow = nums[0]
         fast = nums[0]
@@ -68,15 +68,15 @@ class Solution:
     def main(self):
         nums = [1, 3, 4, 2, 2]
         print(f"Input: nums = {nums}")
-        print(f"Output: {self.findDuplicate(nums)}")
+        print(f"Output: {self.find_duplicate(nums)}")
 
         nums = [3, 1, 3, 4, 2]
         print(f"Input: nums = {nums}")
-        print(f"Output: {self.findDuplicate(nums)}")
+        print(f"Output: {self.find_duplicate(nums)}")
 
         nums = [3, 3, 3, 3, 3]
         print(f"Input: nums = {nums}")
-        print(f"Output: {self.findDuplicate(nums)}")
+        print(f"Output: {self.find_duplicate(nums)}")
 
 
 if __name__ == "__main__":

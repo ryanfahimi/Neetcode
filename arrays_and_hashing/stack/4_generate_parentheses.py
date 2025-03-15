@@ -24,7 +24,7 @@ from typing import List
 class Solution:
     # Time: O(4^n / sqrt(n))
     # Space: O(n)
-    def generateParenthesis(self, n: int) -> List[str]:
+    def generate_parenthesis(self, n: int) -> List[str]:
         # Initialize an empty stack to store the parentheses
         stack = []
         # Initialize the result array
@@ -64,11 +64,11 @@ class Solution:
     def main(self):
         n = 3
         print(f"Input: n = {n}")
-        print(f"Output: {self.generateParenthesis(n)}")
+        print(f"Output: {self.generate_parenthesis(n)}")
 
         n = 1
         print(f"Input: n = {n}")
-        print(f"Output: {self.generateParenthesis(n)}")
+        print(f"Output: {self.generate_parenthesis(n)}")
 
 
 if __name__ == "__main__":

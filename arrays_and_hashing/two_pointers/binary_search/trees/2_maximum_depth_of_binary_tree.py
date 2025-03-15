@@ -30,7 +30,7 @@ from TreeNode import TreeNode
 class MaxDepth:
     # Time: O(n)
     # Space: O(n)
-    def bfs(self, root: Optional[TreeNode]) -> int:
+    def by_bfs(self, root: Optional[TreeNode]) -> int:
         # Base case
         if not root:
             # If the tree is empty, return depth as 0
@@ -62,21 +62,21 @@ class MaxDepth:
 
     # Time: O(n)
     # Space: O(n)
-    def recursive_dfs(self, root: Optional[TreeNode]) -> int:
+    def by_recursive_dfs(self, root: Optional[TreeNode]) -> int:
         # Base case
         if not root:
             return 0
 
         # Recursively calculate the depth of the left and right subtrees
-        left_depth = self.recursive_dfs(root.left)
-        right_depth = self.recursive_dfs(root.right)
+        left_depth = self.by_recursive_dfs(root.left)
+        right_depth = self.by_recursive_dfs(root.right)
 
         # Return the maximum depth of the left and right subtrees
         return max(left_depth, right_depth) + 1
 
     # Time: O(n)
     # Space: O(n)
-    def iterative_dfs(self, root: Optional[TreeNode]) -> int:
+    def by_iterative_dfs(self, root: Optional[TreeNode]) -> int:
         # Base case
         if not root:
             # If the tree is empty, return depth as 0
@@ -107,15 +107,15 @@ class MaxDepth:
     def main(self):
         root = TreeNode(3, TreeNode(9), TreeNode(20, TreeNode(15), TreeNode(7)))
         print(f"Input: root = {root}")
-        print(f"Output (BFS): {self.bfs(root)}")
-        print(f"Output (Recursive DFS): {self.recursive_dfs(root)}")
-        print(f"Output (Iterative DFS): {self.iterative_dfs(root)}")
+        print(f"Output (BFS): {self.by_bfs(root)}")
+        print(f"Output (Recursive DFS): {self.by_recursive_dfs(root)}")
+        print(f"Output (Iterative DFS): {self.by_iterative_dfs(root)}")
 
         root = TreeNode(1, None, TreeNode(2))
         print(f"Input: root = {root}")
-        print(f"Output (BFS): {self.bfs(root)}")
-        print(f"Output (Recursive DFS): {self.recursive_dfs(root)}")
-        print(f"Output (Iterative DFS): {self.iterative_dfs(root)}")
+        print(f"Output (BFS): {self.by_bfs(root)}")
+        print(f"Output (Recursive DFS): {self.by_recursive_dfs(root)}")
+        print(f"Output (Iterative DFS): {self.by_iterative_dfs(root)}")
 
 
 if __name__ == "__main__":

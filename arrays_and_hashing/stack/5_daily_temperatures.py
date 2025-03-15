@@ -29,7 +29,7 @@ from typing import List
 class Solution:
     # Time: O(n)
     # Space: O(n)
-    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+    def daily_temperatures(self, temperatures: List[int]) -> List[int]:
         # Initialize the stack to store the indices of the temperatures
         stack = []
         # Initialize the result array with zeros
@@ -50,15 +50,15 @@ class Solution:
     def main(self):
         temperatures = [73, 74, 75, 71, 69, 72, 76, 73]
         print(f"Input: temperatures = {temperatures}")
-        print(f"Output: {self.dailyTemperatures(temperatures)}")
+        print(f"Output: {self.daily_temperatures(temperatures)}")
 
         temperatures = [30, 40, 50, 60]
         print(f"Input: temperatures = {temperatures}")
-        print(f"Output: {self.dailyTemperatures(temperatures)}")
+        print(f"Output: {self.daily_temperatures(temperatures)}")
 
         temperatures = [30, 60, 90]
         print(f"Input: temperatures = {temperatures}")
-        print(f"Output: {self.dailyTemperatures(temperatures)}")
+        print(f"Output: {self.daily_temperatures(temperatures)}")
 
 
 if __name__ == "__main__":

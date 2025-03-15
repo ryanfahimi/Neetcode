@@ -43,7 +43,7 @@ from ListNode import ListNode
 class Solution:
     # Time: O(n)
     # Space: O(1)
-    def hasCycle(self, head: Optional[ListNode]) -> bool:
+    def has_cycle(self, head: Optional[ListNode]) -> bool:
         # Initialize two pointers, slow and fast, both starting at the head of the linked list
         slow = head
         fast = head
@@ -69,16 +69,16 @@ class Solution:
         head.next.next.next = ListNode(-4)
         head.next.next.next.next = head.next
         print(f"Input: head = [3,2,0,-4], pos = 1")
-        print(f"Output: {self.hasCycle(head)}")
+        print(f"Output: {self.has_cycle(head)}")
 
         head = ListNode(1, ListNode(2))
         head.next.next = head
         print(f"Input: head = [1,2], pos = 0")
-        print(f"Output: {self.hasCycle(head)}")
+        print(f"Output: {self.has_cycle(head)}")
 
         head = ListNode(1)
         print(f"Input: head = [1], pos = -1")
-        print(f"Output: {self.hasCycle(head)}")
+        print(f"Output: {self.has_cycle(head)}")
 
 
 if __name__ == "__main__":

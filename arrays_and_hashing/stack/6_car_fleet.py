@@ -61,7 +61,7 @@ from typing import List
 class Solution:
     # Time: O(nlogn)
     # Space: O(n)
-    def carFleet(self, target: int, positions: List[int], speeds: List[int]) -> int:
+    def car_fleet(self, target: int, positions: List[int], speeds: List[int]) -> int:
         # Combine positions and speeds into a list of tuples and sort them in descending order by position
         cars = sorted(zip(positions, speeds), reverse=True)
 
@@ -87,19 +87,19 @@ class Solution:
         position = [10, 8, 0, 5, 3]
         speed = [2, 4, 1, 1, 3]
         print(f"Input: target = {target}, position = {position}, speed = {speed}")
-        print(f"Output: {self.carFleet(target, position, speed)}")
+        print(f"Output: {self.car_fleet(target, position, speed)}")
 
         target = 10
         position = [3]
         speed = [3]
         print(f"Input: target = {target}, position = {position}, speed = {speed}")
-        print(f"Output: {self.carFleet(target, position, speed)}")
+        print(f"Output: {self.car_fleet(target, position, speed)}")
 
         target = 100
         position = [0, 2, 4]
         speed = [4, 2, 1]
         print(f"Input: target = {target}, position = {position}, speed = {speed}")
-        print(f"Output: {self.carFleet(target, position, speed)}")
+        print(f"Output: {self.car_fleet(target, position, speed)}")
 
 
 if __name__ == "__main__":

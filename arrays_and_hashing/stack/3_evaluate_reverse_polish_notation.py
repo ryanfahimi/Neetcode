@@ -50,7 +50,7 @@ from typing import List
 class Solution:
     # Time: O(n)
     # Space: O(n)
-    def evalRPN(self, tokens: List[str]) -> int:
+    def eval_rpn(self, tokens: List[str]) -> int:
         # Initialize an empty stack to store operands
         stack = []
 
@@ -83,15 +83,15 @@ class Solution:
     def main(self):
         tokens = ["2", "1", "+", "3", "*"]
         print(f"Input: tokens = {tokens}")
-        print(f"Output: {self.evalRPN(tokens)}")
+        print(f"Output: {self.eval_rpn(tokens)}")
 
         tokens = ["4", "13", "5", "/", "+"]
         print(f"Input: tokens = {tokens}")
-        print(f"Output: {self.evalRPN(tokens)}")
+        print(f"Output: {self.eval_rpn(tokens)}")
 
         tokens = ["10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"]
         print(f"Input: tokens = {tokens}")
-        print(f"Output: {self.evalRPN(tokens)}")
+        print(f"Output: {self.eval_rpn(tokens)}")
 
 
 if __name__ == "__main__":

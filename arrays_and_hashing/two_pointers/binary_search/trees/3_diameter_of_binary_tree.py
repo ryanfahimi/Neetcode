@@ -32,31 +32,31 @@ from TreeNode import TreeNode
 class DiameterOfBinaryTree:
     # Time: O(n^2)
     # Space: O(n)
-    def brute_force(self, root: Optional[TreeNode]) -> int:
-        def max_height(node):
+    def by_brute_force(self, root: Optional[TreeNode]) -> int:
+        def height(node):
             if not node:
                 return 0
 
-            return 1 + max(max_height(node.left), max_height(node.right))
+            return 1 + max(height(node.left), height(node.right))
 
         # Base case
         if not root:
             return 0
 
-        left_height = max_height(root.left)
-        right_height = max_height(root.right)
+        left_height = height(root.left)
+        right_height = height(root.right)
 
         # Calculate the diameter of the left subtree
-        left_diameter = self.brute_force(root.left)
+        left_diameter = self.by_brute_force(root.left)
         # Calculate the diameter of the right subtree
-        right_diameter = self.brute_force(root.right)
+        right_diameter = self.by_brute_force(root.right)
 
         # Return the maximum of the left diameter, right diameter, and the sum of the heights of the left and right subtrees
         return max(left_height + right_height, left_diameter, right_diameter)
 
     # Time: O(n)
     # Space: O(n)
-    def recursive_dfs(self, root: Optional[TreeNode]) -> int:
+    def by_recursive_dfs(self, root: Optional[TreeNode]) -> int:
         # Base case
         if not root:
             return 0
@@ -65,15 +65,15 @@ class DiameterOfBinaryTree:
         diameter = 0
 
         # Recursive function to calculate the height of the tree
-        def dfs(node):
+        def height(node):
             # Base case
             if not node:
                 return 0
 
             # Recursively calculate the height of the left subtree
-            left = dfs(node.left)
+            left = height(node.left)
             # Recursively calculate the height of the right subtree
-            right = dfs(node.right)
+            right = height(node.right)
 
             # Update the diameter of the tree
             nonlocal diameter
@@ -82,13 +82,13 @@ class DiameterOfBinaryTree:
             # Return the height of the current node
             return 1 + max(left, right)
 
-        dfs(root)
+        height(root)
 
         return diameter
 
     # Time: O(n)
     # Space: O(n)
-    def iterative_dfs(self, root: Optional[TreeNode]) -> int:
+    def by_iterative_dfs(self, root: Optional[TreeNode]) -> int:
         # Base case: if the root is None, the diameter is 0
         if not root:
             return 0
@@ -128,15 +128,15 @@ class DiameterOfBinaryTree:
     def main(self):
         root = TreeNode(1, TreeNode(2, TreeNode(4), TreeNode(5)), TreeNode(3))
         print(f"Input: root = {root}")
-        print(f"Output (Brute Force): {self.brute_force(root)}")
-        print(f"Output (Recursive DFS): {self.recursive_dfs(root)}")
-        print(f"Output (Iterative DFS): {self.iterative_dfs(root)}")
+        print(f"Output (Brute Force): {self.by_brute_force(root)}")
+        print(f"Output (Recursive DFS): {self.by_recursive_dfs(root)}")
+        print(f"Output (Iterative DFS): {self.by_iterative_dfs(root)}")
 
         root = TreeNode(1, TreeNode(2))
         print(f"Input: root = {root}")
-        print(f"Output (Brute Force): {self.brute_force(root)}")
-        print(f"Output (Recursive DFS): {self.recursive_dfs(root)}")
-        print(f"Output (Iterative DFS): {self.iterative_dfs(root)}")
+        print(f"Output (Brute Force): {self.by_brute_force(root)}")
+        print(f"Output (Recursive DFS): {self.by_recursive_dfs(root)}")
+        print(f"Output (Iterative DFS): {self.by_iterative_dfs(root)}")
 
 
 if __name__ == "__main__":
