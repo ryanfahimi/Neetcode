@@ -55,7 +55,7 @@ class Twitter:
 
     # Time: O(1)
     # Space: O(m)
-    def postTweet(self, user_id: int, tweet_id: int) -> None:
+    def post_tweet(self, user_id: int, tweet_id: int) -> None:
         # Store the tweet with the current time and decrement the time
         self.tweets[user_id].append((self.time, tweet_id))
         self.time -= 1
@@ -66,7 +66,7 @@ class Twitter:
 
     # Time: O(n)
     # Space: O(k)
-    def getNewsFeed(self, user_id: int) -> List[int]:
+    def get_news_feed(self, user_id: int) -> List[int]:
         # Min-heap to store the tweets
         min_heap = []
 
@@ -100,26 +100,25 @@ class Twitter:
     # Time: O(1)
     # Space: O(k)
     def unfollow(self, follower_id: int, followee_id: int) -> None:
-        if follower_id in self.followers:
-            self.followers[follower_id].discard(followee_id)
+        self.followers[follower_id].discard(followee_id)
 
     def main(self):
         print("Command: Twitter()")
         twitter = Twitter()
         print("Command: postTweet(1, 5)")
-        twitter.postTweet(1, 5)
+        twitter.post_tweet(1, 5)
         print("Command: getNewsFeed(1)")
-        print(f"Output: {twitter.getNewsFeed(1)}")
+        print(f"Output: {twitter.get_news_feed(1)}")
         print("Command: follow(1, 2)")
         twitter.follow(1, 2)
         print("Command: postTweet(2, 6)")
-        twitter.postTweet(2, 6)
+        twitter.post_tweet(2, 6)
         print("Command: getNewsFeed(1)")
-        print(f"Output: {twitter.getNewsFeed(1)}")
+        print(f"Output: {twitter.get_news_feed(1)}")
         print("Command: unfollow(1, 2)")
         twitter.unfollow(1, 2)
         print("Command: getNewsFeed(1)")
-        print(f"Output: {twitter.getNewsFeed(1)}")
+        print(f"Output: {twitter.get_news_feed(1)}")
 
 
 if __name__ == "__main__":
