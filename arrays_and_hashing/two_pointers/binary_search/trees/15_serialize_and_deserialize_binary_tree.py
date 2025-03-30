@@ -52,26 +52,26 @@ class Codec:
         """
         data = data.split()  # Split the serialized string into a list of values
         # Initialize an index to keep track of the current position in the list
-        index = 0
+        index = -1
 
-        def traverse(val):
+        def traverse():
             nonlocal index  # Allow modification of the index variable in the outer scope
             index += 1  # Move to the next value in the list
-            if val == "/":
+            if data[index] == "/":
                 # If the value is "/", it represents a null node
                 return None
 
             # Create a new TreeNode with the current value
-            node = TreeNode(val)
+            node = TreeNode(int(data[index]))
             # Recursively construct the left subtree
-            node.left = traverse(data[index])
+            node.left = traverse()
             # Recursively construct the right subtree
-            node.right = traverse(data[index])
+            node.right = traverse()
 
             return node  # Return the constructed node
 
         # Start the traversal with the first value in the list
-        return traverse(data[index])
+        return traverse()
 
     # Your Codec object will be instantiated and called as such:
     # ser = Codec()
