@@ -1,6 +1,7 @@
-from typing import List, Optional
-from ListNode import ListNode
 import heapq
+from typing import List, Optional
+
+from ListNode import ListNode
 
 # 23. Merge k Sorted Lists
 # Hard
